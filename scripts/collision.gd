@@ -9,7 +9,7 @@ export var sizeCol : Vector2 = Vector2(0,0)
 export(NodePath) var node_path
 
 #obtiene las propiedades del nodo
-onready var node = get_node(node_path)
+onready var map = get_node(node_path)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,4 +21,4 @@ func _on_collision_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT:
 			#Establece la posición del mapa
-			node.position = pos
+			map.position = pos
