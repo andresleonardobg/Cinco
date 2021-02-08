@@ -1,20 +1,37 @@
 extends Sprite
 
-func _ready():
-	pass 
+export(NodePath) var node_path
+onready var node = get_node(node_path)
 
+export(NodePath) var node_path_2
+onready var node_2 = get_node(node_path)
 
-#Botones para navegar en el mapa
+func _process(delta):
+	self.position = Global.pos
+	_buttomVisibility(node)
+	if self.visible == false or self.position == Vector2(0, -500):
+		$CanvasLayer/left.visible = false
+		$CanvasLayer/rigth.visible = false
 
 func _on_left_pressed():
-	if self.position.x >= 1000:
-		self.position.x = -500
+	if Global.pos.x >= 1000:
+		Global.pos.x = -500
 	else:
-		self.position.x = self.position.x + 500
+		Global.pos.x = Global.pos.x + 500
 
 
 func _on_rigth_pressed():
-	if self.position.x <= -500:
-		self.position.x = 1000
+	if Global.pos.x <= -500:
+		Global.pos.x = 1000
 	else:
-		self.position.x = self.position.x - 500
+		Global.pos.x = Global.pos.x - 500
+
+#Quitar visivilidad de los botones de navegación
+func _buttomVisibility(node):
+	if node != null:
+		if node.visible:
+			$CanvasLayer/left.visible = false
+			$CanvasLayer/rigth.visible = false
+	else:
+		$CanvasLayer/left.visible = true
+		$CanvasLayer/rigth.visible = true

@@ -1,13 +1,19 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/collision.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/Game.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Particles2D.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/computer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/note.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Inventory.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/object.tscn" type="PackedScene" id=8]
+[ext_resource path="res://icon.png" type="Texture" id=9]
+[ext_resource path="res://assets/note.png" type="Texture" id=10]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.0116959, 0.497076, 1 )
-colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.438596, 1, 1, 1, 1, 1, 1, 1, 0 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.438596, 0.149916, 0.724121, 0.624869, 1, 1, 1, 1, 0 )
 
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )
@@ -37,123 +43,161 @@ load_path = "res://.import/particualas.png-dfe477a5e531db74abb82f64da3b130f.stex
 script = ExtResource( 3 )
 
 [node name="map" parent="." instance=ExtResource( 1 )]
+node_path = NodePath("computer")
 
-[node name="Doors" type="Node2D" parent="map"]
+[node name="Collitions level 1" type="Node2D" parent="map"]
 
-[node name="door1" parent="map/Doors" instance=ExtResource( 2 )]
+[node name="door1" parent="map/Collitions level 1" instance=ExtResource( 2 )]
 position = Vector2( 750, -1730 )
 z_index = 6
 pos = Vector2( 500, 1500 )
 sizeCol = Vector2( 4, 6 )
 node_path = NodePath("../..")
 
-[node name="door2" parent="map/Doors" instance=ExtResource( 2 )]
+[node name="door2" parent="map/Collitions level 1" instance=ExtResource( 2 )]
 position = Vector2( -762.913, -1255.36 )
 z_index = 6
 pos = Vector2( 1000, 1000 )
 sizeCol = Vector2( 4, 6 )
 node_path = NodePath("../..")
 
-[node name="door3" parent="map/Doors" instance=ExtResource( 2 )]
+[node name="door3" parent="map/Collitions level 1" instance=ExtResource( 2 )]
 position = Vector2( 254.17, -1255.36 )
 z_index = 6
 pos = Vector2( 1000, 500 )
 sizeCol = Vector2( 4, 6 )
 node_path = NodePath("../..")
-particles = NodePath("../../particles")
+node_path_2 = NodePath("../../particles")
 
-[node name="door4" parent="map/Doors" instance=ExtResource( 2 )]
+[node name="door4" parent="map/Collitions level 1" instance=ExtResource( 2 )]
 position = Vector2( 754.236, -1263.84 )
 z_index = 6
 pos = Vector2( 500, 2000 )
 sizeCol = Vector2( 4, 6 )
 node_path = NodePath("../..")
 
-[node name="door5" parent="map/Doors" instance=ExtResource( 2 )]
+[node name="door5" parent="map/Collitions level 1" instance=ExtResource( 2 )]
 position = Vector2( -118.76, -776.484 )
 z_index = 6
 pos = Vector2( 0, 1500 )
 sizeCol = Vector2( 4, 6 )
 node_path = NodePath("../..")
 
-[node name="door6" parent="map/Doors" instance=ExtResource( 2 )]
+[node name="door6" parent="map/Collitions level 1" instance=ExtResource( 2 )]
 position = Vector2( -741.725, -208.611 )
 z_index = 6
 pos = Vector2( 500, 500 )
 sizeCol = Vector2( 4, 6 )
 node_path = NodePath("../..")
 
-[node name="door7" parent="map/Doors" instance=ExtResource( 2 )]
+[node name="door7" parent="map/Collitions level 1" instance=ExtResource( 2 )]
 position = Vector2( -241.658, -378.125 )
 z_index = 6
 pos = Vector2( 0, 500 )
 sizeCol = Vector2( 4, 6 )
 node_path = NodePath("../..")
 
-[node name="door8" parent="map/Doors" instance=ExtResource( 2 )]
+[node name="door8" parent="map/Collitions level 1" instance=ExtResource( 2 )]
 position = Vector2( 254.17, -378.125 )
 z_index = 6
 pos = Vector2( -500, 500 )
 sizeCol = Vector2( 4, 6 )
 node_path = NodePath("../..")
 
-[node name="door9" parent="map/Doors" instance=ExtResource( 2 )]
+[node name="door9" parent="map/Collitions level 1" instance=ExtResource( 2 )]
 position = Vector2( 754.237, -259.466 )
 z_index = 6
 pos = Vector2( 1000, 1000 )
 sizeCol = Vector2( 4, 6 )
-node_path = NodePath("..")
+node_path = NodePath("../..")
 
-[node name="door10" parent="map/Doors" instance=ExtResource( 2 )]
+[node name="computer" parent="map/Collitions level 1" instance=ExtResource( 2 )]
+position = Vector2( 746.401, -719.088 )
+sizeCol = Vector2( 2, 2 )
+node_path = NodePath("../../computer")
+node_path_2 = NodePath("../../../Inventory")
+
+[node name="note" parent="map/Collitions level 1" instance=ExtResource( 2 )]
+position = Vector2( 791.299, -682.608 )
+sizeCol = Vector2( 1, 1 )
+node_path = NodePath("note")
+
+[node name="note" parent="map/Collitions level 1/note" instance=ExtResource( 6 )]
+visible = false
+margin_left = -203.171
+margin_top = -47.7671
+margin_right = 308.829
+margin_bottom = 458.233
+rect_rotation = -41.9
+rect_scale = Vector2( 0.5, 0.5 )
+
+[node name="Collitions level 2" type="Node2D" parent="map"]
+
+[node name="note2" parent="map/Collitions level 2" instance=ExtResource( 2 )]
+position = Vector2( -390.507, 297.611 )
+sizeCol = Vector2( 1, 1 )
+node_path = NodePath("note")
+
+[node name="note" parent="map/Collitions level 2/note2" instance=ExtResource( 6 )]
+visible = false
+margin_left = 113.613
+margin_top = -183.532
+margin_right = 625.613
+margin_bottom = 322.468
+rect_scale = Vector2( 0.5, 0.5 )
+icon = ExtResource( 10 )
+
+[node name="door10" parent="map/Collitions level 2" instance=ExtResource( 2 )]
 position = Vector2( -959.826, 213.999 )
 z_index = 6
 pos = Vector2( 500, 0 )
 sizeCol = Vector2( 4, 6 )
 node_path = NodePath("../..")
 
-[node name="door11" parent="map/Doors" instance=ExtResource( 2 )]
+[node name="door11" parent="map/Collitions level 2" instance=ExtResource( 2 )]
 position = Vector2( -751.591, 400.877 )
 z_index = 6
 pos = Vector2( 500, 0 )
 sizeCol = Vector2( 4, 6 )
-node_path = NodePath("..")
+node_path = NodePath("../..")
 
-[node name="door12" parent="map/Doors" instance=ExtResource( 2 )]
+[node name="door12" parent="map/Collitions level 2" instance=ExtResource( 2 )]
 position = Vector2( -249.691, 411.555 )
 z_index = 6
 pos = Vector2( 1000, 0 )
 sizeCol = Vector2( 4, 6 )
 node_path = NodePath("../..")
 
-[node name="door13" parent="map/Doors" instance=ExtResource( 2 )]
+[node name="door13" parent="map/Collitions level 2" instance=ExtResource( 2 )]
 position = Vector2( 257.548, 414.225 )
 z_index = 6
 pos = Vector2( 1000, 0 )
 sizeCol = Vector2( 4, 6 )
-node_path = NodePath("..")
+node_path = NodePath("../..")
 
-[node name="door14" parent="map/Doors" instance=ExtResource( 2 )]
+[node name="door14" parent="map/Collitions level 2" instance=ExtResource( 2 )]
 position = Vector2( 751.438, 435.583 )
 z_index = 6
 pos = Vector2( 1000, 0 )
 sizeCol = Vector2( 4, 6 )
-node_path = NodePath("..")
+node_path = NodePath("../..")
+node_path_2 = NodePath(".")
 
-[node name="door15" parent="map/Doors" instance=ExtResource( 2 )]
+[node name="door15" parent="map/Collitions level 2" instance=ExtResource( 2 )]
 position = Vector2( -799.646, 964.179 )
 z_index = 6
 pos = Vector2( 1000, 0 )
 sizeCol = Vector2( 4, 6 )
-node_path = NodePath("..")
+node_path = NodePath("../..")
 
-[node name="door16" parent="map/Doors" instance=ExtResource( 2 )]
+[node name="door16" parent="map/Collitions level 2" instance=ExtResource( 2 )]
 position = Vector2( -551.365, 752.58 )
 z_index = 6
 pos = Vector2( 500, -500 )
 sizeCol = Vector2( 4, 6 )
 node_path = NodePath("../..")
 
-[node name="door17" parent="map/Doors" instance=ExtResource( 2 )]
+[node name="door17" parent="map/Collitions level 2" instance=ExtResource( 2 )]
 position = Vector2( -460.596, 758.614 )
 z_index = 6
 pos = Vector2( 1000, -500 )
@@ -172,3 +216,21 @@ position = Vector2( 307.854, -1254.8 )
 scale = Vector2( 0.2, 0.2 )
 process_material = SubResource( 5 )
 texture = SubResource( 6 )
+
+[node name="computer" parent="map" instance=ExtResource( 5 )]
+visible = false
+margin_left = 500.0
+margin_top = -1000.0
+margin_right = -1000.0
+margin_bottom = -4500.0
+door = NodePath("../Collitions level 1/door3")
+
+[node name="objects" type="Node2D" parent="map"]
+
+[node name="object" parent="map/objects" instance=ExtResource( 8 )]
+position = Vector2( -750, -1750 )
+z_index = 1
+texture = ExtResource( 9 )
+
+[node name="Inventory" parent="." instance=ExtResource( 7 )]
+position = Vector2( 0, 500 )

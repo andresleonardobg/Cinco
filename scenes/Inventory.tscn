@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/boxInventory.png" type="Texture" id=1]
+[ext_resource path="res://scenes/restPosition.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/Inventory.gd" type="Script" id=3]
+[ext_resource path="res://assets/buttonInventory.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "hideShow"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("../boxInventory:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("../boxInventory:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -100, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+
+[node name="Inventory" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="boxInventory" type="Node2D" parent="."]
+
+[node name="box" type="Sprite" parent="boxInventory"]
+texture = ExtResource( 1 )
+offset = Vector2( 250, 50 )
+
+[node name="restPosition" parent="boxInventory" instance=ExtResource( 2 )]
+position = Vector2( 400, 50 )
+colors = Color( 0, 1, 0.835294, 1 )
+
+[node name="restPosition2" parent="boxInventory" instance=ExtResource( 2 )]
+position = Vector2( 300, 50 )
+colors = Color( 0, 1, 0.835294, 1 )
+
+[node name="restPosition3" parent="boxInventory" instance=ExtResource( 2 )]
+position = Vector2( 200, 50 )
+colors = Color( 0, 1, 0.835294, 1 )
+
+[node name="restPosition4" parent="boxInventory" instance=ExtResource( 2 )]
+position = Vector2( 100, 50 )
+colors = Color( 0, 1, 0.835294, 1 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 478.0
+margin_top = -120.0
+margin_right = 520.0
+margin_bottom = -94.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 4 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Button"]
+anims/hideShow = SubResource( 1 )
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
