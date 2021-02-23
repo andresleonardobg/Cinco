@@ -7,12 +7,19 @@ export(NodePath) var node_path_2
 onready var node_2 = get_node(node_path)
 
 func _process(delta):
+	#capturar posición del mapa
+	Global.mapPos = self.position
+	
 	self.position = Global.pos
 	_buttomVisibility(node)
-	if self.visible == false or self.position == Vector2(0, -500):
+	
+	#inahabilitar botones laterales de navegación
+	if self.visible == false or self.position.y <= -500:
 		$CanvasLayer/left.visible = false
 		$CanvasLayer/rigth.visible = false
 
+
+#Botones de nevegación
 func _on_left_pressed():
 	if Global.pos.x >= 1000:
 		Global.pos.x = -500

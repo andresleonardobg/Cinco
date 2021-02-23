@@ -3,6 +3,9 @@ extends Control
 export(NodePath) var door
 onready var unlock = get_node(door)
 
+export(NodePath) var inventario
+onready var inv = get_node(inventario)
+
 func _ready():
 	$ColorRect/Control/Label.text = "Ingrese la contraseña"
 
@@ -37,5 +40,6 @@ func _on_ConfirmationDialog_confirmed():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	$ColorRect/Container.queue_free()
+	inv.visible = true
 	unlock.unlock = true
 	self.queue_free()

@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/Dialogues.gd" type="Script" id=1]
+
+[node name="Dialogues" type="ColorRect"]
+margin_left = 25.0
+margin_right = 475.0
+margin_bottom = 100.0
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 440.0
+margin_bottom = 90.0
+text = "Hello world"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.02
+autostart = true
+[connection signal="mouse_entered" from="." to="." method="_on_Dialogues_mouse_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
