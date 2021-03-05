@@ -30,9 +30,15 @@ func _on_collision_input_event(viewport, event, shape_idx):
 		elif self.name == "door9":
 			if Global.dialogoPasillo:
 				Global.instance_node(Global.dialogNode,node,Global.posDialogo,Global.dialogos[0])
-				Global.dialogoPasillo = false
-				print('funciona')
+#				Global.dialogoPasillo = false
 			Global.pos = pos
+		elif self.name == "door11":
+#			Global.dialogoPasillo = true
+			if Global.dialogoPasillo:
+				Global.instance_node(Global.dialogNode,node,Global.posDialogo,Global.dialogos[1])
+#				Global.dialogoPasillo = false
+			Global.pos = pos
+			print('funciona')
 		elif self.name == "computer":
 			#Muestra el computador
 			node.visible = true
