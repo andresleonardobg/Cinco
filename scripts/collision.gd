@@ -28,17 +28,15 @@ func _on_collision_input_event(viewport, event, shape_idx):
 				$Timer.start()
 				node2.visible = true
 		elif self.name == "door9":
+			Global.hide = false
 			if Global.dialogoPasillo:
 				Global.instance_node(Global.dialogNode,node,Global.posDialogo,Global.dialogos[0])
-#				Global.dialogoPasillo = false
 			Global.pos = pos
 		elif self.name == "door11":
-#			Global.dialogoPasillo = true
+			Global.hide = false
 			if Global.dialogoPasillo:
 				Global.instance_node(Global.dialogNode,node,Global.posDialogo,Global.dialogos[1])
-#				Global.dialogoPasillo = false
 			Global.pos = pos
-			print('funciona')
 		elif self.name == "computer":
 			#Muestra el computador
 			node.visible = true

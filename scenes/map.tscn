@@ -16,7 +16,9 @@ script = ExtResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="left" type="Button" parent="CanvasLayer"]
+[node name="left" type="Button" parent="CanvasLayer" groups=[
+"hide",
+]]
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_top = -10.0
@@ -33,7 +35,9 @@ position = Vector2( 5, 10 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/left/Area2D"]
 shape = SubResource( 2 )
 
-[node name="rigth" type="Button" parent="CanvasLayer"]
+[node name="rigth" type="Button" parent="CanvasLayer" groups=[
+"hide",
+]]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0

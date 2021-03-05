@@ -2,6 +2,8 @@ extends Node
 
 var pos = Vector2(1000,2000) #posición inicial del mapa
 var mapPos #posion del mapa mientras juega
+onready var nodeToHide = get_tree().get_nodes_in_group("hide")
+var hide = true
 
 var dialogos = [
 	'Debes de estar hambriento, por favor ignora el desorden ve a la cocina, allá podrás encontrar algo que comer',
@@ -20,3 +22,10 @@ func instance_node(node, parent, pos, texto):
 	node_instance.texto = texto
 	parent.add_child(node_instance)
 	return node_instance
+
+func _process(delta):
+	#cambia de estado los nodos de navegacipon cuando los dialogos se muestran
+	for node in nodeToHide:
+		node.visible = hide
+	
+	

@@ -18,7 +18,8 @@ func _input(event):
 			$RichTextLabel.visible_characters = 0
 			$RichTextLabel.text = t[p]
 			canChange = false
-		else: 
+		else:
+			Global.hide = true 
 			self.queue_free()
 
 func _on_Timer_timeout():
