@@ -340,7 +340,9 @@ __meta__ = {
 
 [node name="slots" type="Node2D" parent="map/interaction/ComputerTwo"]
 
-[node name="slot" type="Area2D" parent="map/interaction/ComputerTwo/slots"]
+[node name="slot" type="Area2D" parent="map/interaction/ComputerTwo/slots" groups=[
+"slots",
+]]
 position = Vector2( 365.19, 467.9 )
 collision_layer = 2
 collision_mask = 2
@@ -351,7 +353,9 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/interaction/ComputerTwo/slots/slot"]
 shape = SubResource( 5 )
 
-[node name="slot2" type="Area2D" parent="map/interaction/ComputerTwo/slots"]
+[node name="slot2" type="Area2D" parent="map/interaction/ComputerTwo/slots" groups=[
+"slots",
+]]
 position = Vector2( 445.852, 467.899 )
 collision_layer = 2
 collision_mask = 2
@@ -362,7 +366,9 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/interaction/ComputerTwo/slots/slot2"]
 shape = SubResource( 5 )
 
-[node name="slot3" type="Area2D" parent="map/interaction/ComputerTwo/slots"]
+[node name="slot3" type="Area2D" parent="map/interaction/ComputerTwo/slots" groups=[
+"slots",
+]]
 position = Vector2( 526.514, 467.9 )
 collision_layer = 2
 collision_mask = 2
@@ -373,7 +379,9 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/interaction/ComputerTwo/slots/slot3"]
 shape = SubResource( 5 )
 
-[node name="slot4" type="Area2D" parent="map/interaction/ComputerTwo/slots"]
+[node name="slot4" type="Area2D" parent="map/interaction/ComputerTwo/slots" groups=[
+"slots",
+]]
 position = Vector2( 591.043, 467.899 )
 collision_layer = 2
 collision_mask = 2

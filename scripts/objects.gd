@@ -10,6 +10,9 @@ var inInvent = false
 
 onready var positions = get_tree().get_nodes_in_group('positions')
 
+func _ready():
+	self.add_to_group('objects')
+
 func _on_object_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == BUTTON_LEFT and block == false:
