@@ -9,12 +9,10 @@ func _ready():
 
 func _process(_delta):
 	if count == 4:
-		for n in chips:
-			var obj = n.get_children()
-			obj[1].block = false
-			obj[1].softwareLoad = true
+		$Computer/RichTextLabel.visible = false
+		$Computer/RichTextLabel2.visible = true
+		$Computer/RichTextLabel2/Timer.start()
 		count = 0
-	pass
 
 func _on_slot_area_entered(area):
 	if area.name == 'object':
@@ -41,3 +39,32 @@ func insert_child(area, nm, parent):
 	n.block = true
 	parent.call_deferred("add_child", n)
 	count += 1
+
+
+func _on_Timer_timeout():
+	$Computer/RichTextLabel2.visible = false
+	$Computer/load.visible = true
+	$Computer/load/ColorRect/AnimationPlayer.play("load")
+	
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	$Computer/load/ColorRect2/AnimationPlayer2.play("load")
+
+
+func _on_AnimationPlayer2_animation_finished(anim_name):
+	$Computer/load/ColorRect3/AnimationPlayer3.play("load")
+
+
+func _on_AnimationPlayer3_animation_finished(anim_name):
+	$Computer/load/ColorRect4/AnimationPlayer4.play("load")
+	
+
+func _on_AnimationPlayer4_animation_finished(anim_name):
+	$Computer/RichTextLabel2.text = 'carga completa'
+	$Computer/RichTextLabel2.visible = true
+	$Computer/load.visible = false
+	for n in chips:
+		 var obj = n.get_children()
+		 obj[1].block = false
+		 obj[1].softwareLoad = true

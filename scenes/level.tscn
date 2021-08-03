@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenes/map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/navigation.tscn" type="PackedScene" id=2]
@@ -39,6 +39,74 @@ font_path = "res://assets/font/Inconsolata-VariableFont_wdth,wght.ttf"
 size = 50
 font_data = SubResource( 3 )
 
+[sub_resource type="DynamicFont" id=6]
+size = 50
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 50
+font_data = SubResource( 3 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "load"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 40 ), Vector2( 400, 40 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "load"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 40 ), Vector2( 400, 40 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "load"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 40 ), Vector2( 400, 40 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "load"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 40 ), Vector2( 400, 40 ) ]
+}
+
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 10.2783, 51.3213 )
 
@@ -49,21 +117,22 @@ __meta__ = {
 
 [node name="map" parent="." instance=ExtResource( 1 )]
 script = ExtResource( 8 )
+position_in_map = Vector2( -500, -3500 )
 
 [node name="objects" type="Node2D" parent="map"]
 script = ExtResource( 3 )
 
 [node name="object" parent="map/objects" instance=ExtResource( 4 )]
-position = Vector2( 176, 192 )
+position = Vector2( 608, 3824 )
 
 [node name="object3" parent="map/objects" instance=ExtResource( 4 )]
-position = Vector2( 328, 2800 )
+position = Vector2( 888, 3632 )
 
 [node name="object4" parent="map/objects" instance=ExtResource( 4 )]
-position = Vector2( 280, 3816 )
+position = Vector2( 696, 3864 )
 
 [node name="object2" parent="map/objects" instance=ExtResource( 4 )]
-position = Vector2( 952, 1344 )
+position = Vector2( 1000, 3584 )
 
 [node name="ColorRect" type="Sprite" parent="map"]
 position = Vector2( 1712, 200 )
@@ -338,6 +407,85 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="RichTextLabel2" type="RichTextLabel" parent="map/interaction/ComputerTwo/Computer"]
+visible = false
+margin_left = -167.0
+margin_top = -20.0
+margin_right = 172.0
+margin_bottom = 57.0
+custom_fonts/normal_font = SubResource( 6 )
+text = "Cargando. . ."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="map/interaction/ComputerTwo/Computer/RichTextLabel2"]
+one_shot = true
+
+[node name="load" type="Control" parent="map/interaction/ComputerTwo/Computer"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="map/interaction/ComputerTwo/Computer/load"]
+margin_left = -118.78
+margin_top = -173.63
+margin_right = 139.22
+margin_bottom = -45.6299
+custom_fonts/normal_font = SubResource( 7 )
+text = "Instalando software"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/interaction/ComputerTwo/Computer/load"]
+margin_left = -199.442
+margin_top = 5.99805
+margin_right = -199.442
+margin_bottom = 45.998
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="map/interaction/ComputerTwo/Computer/load/ColorRect"]
+anims/load = SubResource( 8 )
+
+[node name="ColorRect2" type="ColorRect" parent="map/interaction/ComputerTwo/Computer/load"]
+margin_left = -199.442
+margin_top = 57.3223
+margin_right = -199.442
+margin_bottom = 97.3223
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="map/interaction/ComputerTwo/Computer/load/ColorRect2"]
+anims/load = SubResource( 9 )
+
+[node name="ColorRect3" type="ColorRect" parent="map/interaction/ComputerTwo/Computer/load"]
+margin_left = -199.442
+margin_top = 108.644
+margin_right = -199.442
+margin_bottom = 148.644
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="map/interaction/ComputerTwo/Computer/load/ColorRect3"]
+anims/load = SubResource( 10 )
+
+[node name="ColorRect4" type="ColorRect" parent="map/interaction/ComputerTwo/Computer/load"]
+margin_left = -199.442
+margin_top = 159.966
+margin_right = -199.442
+margin_bottom = 199.966
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer4" type="AnimationPlayer" parent="map/interaction/ComputerTwo/Computer/load/ColorRect4"]
+anims/load = SubResource( 11 )
+
 [node name="slots" type="Node2D" parent="map/interaction/ComputerTwo"]
 
 [node name="slot" type="Area2D" parent="map/interaction/ComputerTwo/slots" groups=[
@@ -409,6 +557,11 @@ nodeMap = NodePath("../../map")
 [connection signal="animation_finished" from="map/ColorRect/AnimationPlayer" to="map/ColorRect" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="map/navigation/door3/Timer" to="map/navigation/door3" method="_on_Timer_timeout"]
 [connection signal="input_event" from="map/interaction/interactive" to="map/interaction/interactive" method="_on_interactive_input_event"]
+[connection signal="timeout" from="map/interaction/ComputerTwo/Computer/RichTextLabel2/Timer" to="map/interaction/ComputerTwo" method="_on_Timer_timeout"]
+[connection signal="animation_finished" from="map/interaction/ComputerTwo/Computer/load/ColorRect/AnimationPlayer" to="map/interaction/ComputerTwo" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="map/interaction/ComputerTwo/Computer/load/ColorRect2/AnimationPlayer2" to="map/interaction/ComputerTwo" method="_on_AnimationPlayer2_animation_finished"]
+[connection signal="animation_finished" from="map/interaction/ComputerTwo/Computer/load/ColorRect3/AnimationPlayer3" to="map/interaction/ComputerTwo" method="_on_AnimationPlayer3_animation_finished"]
+[connection signal="animation_finished" from="map/interaction/ComputerTwo/Computer/load/ColorRect4/AnimationPlayer4" to="map/interaction/ComputerTwo" method="_on_AnimationPlayer4_animation_finished"]
 [connection signal="area_entered" from="map/interaction/ComputerTwo/slots/slot" to="map/interaction/ComputerTwo" method="_on_slot_area_entered"]
 [connection signal="area_entered" from="map/interaction/ComputerTwo/slots/slot2" to="map/interaction/ComputerTwo" method="_on_slot2_area_entered"]
 [connection signal="area_entered" from="map/interaction/ComputerTwo/slots/slot3" to="map/interaction/ComputerTwo" method="_on_slot3_area_entered"]
