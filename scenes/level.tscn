@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://scenes/map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/navigation.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://scenes/gas.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/bgWindow.png" type="Texture" id=12]
 [ext_resource path="res://scripts/ComputerTwo.gd" type="Script" id=13]
+[ext_resource path="res://scripts/Capsule.gd" type="Script" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "openDoor"
@@ -39,13 +40,28 @@ font_path = "res://assets/font/Inconsolata-VariableFont_wdth,wght.ttf"
 size = 50
 font_data = SubResource( 3 )
 
+[sub_resource type="DynamicFont" id=5]
+size = 50
+font_data = SubResource( 3 )
+
 [sub_resource type="DynamicFont" id=6]
 size = 50
 font_data = SubResource( 3 )
 
-[sub_resource type="DynamicFont" id=7]
-size = 50
-font_data = SubResource( 3 )
+[sub_resource type="Animation" id=7]
+resource_name = "load"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 40 ), Vector2( 400, 40 ) ]
+}
 
 [sub_resource type="Animation" id=8]
 resource_name = "load"
@@ -92,23 +108,13 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 40 ), Vector2( 400, 40 ) ]
 }
 
-[sub_resource type="Animation" id=11]
-resource_name = "load"
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 40 ), Vector2( 400, 40 ) ]
-}
-
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 10.2783, 51.3213 )
+
+[sub_resource type="RectangleShape2D" id=12]
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 98.8723, 26.7461 )
 
 [node name="level" type="Node2D"]
 __meta__ = {
@@ -117,22 +123,22 @@ __meta__ = {
 
 [node name="map" parent="." instance=ExtResource( 1 )]
 script = ExtResource( 8 )
-position_in_map = Vector2( -500, -3500 )
+position_in_map = Vector2( -500, -3000 )
 
 [node name="objects" type="Node2D" parent="map"]
 script = ExtResource( 3 )
 
 [node name="object" parent="map/objects" instance=ExtResource( 4 )]
-position = Vector2( 608, 3824 )
+position = Vector2( 880, 3144 )
 
 [node name="object3" parent="map/objects" instance=ExtResource( 4 )]
-position = Vector2( 888, 3632 )
+position = Vector2( 528, 3224 )
 
 [node name="object4" parent="map/objects" instance=ExtResource( 4 )]
-position = Vector2( 696, 3864 )
+position = Vector2( 672, 3096 )
 
 [node name="object2" parent="map/objects" instance=ExtResource( 4 )]
-position = Vector2( 1000, 3584 )
+position = Vector2( 936, 3232 )
 
 [node name="ColorRect" type="Sprite" parent="map"]
 position = Vector2( 1712, 200 )
@@ -302,15 +308,29 @@ posMap = Vector2( -500, -1500 )
 nodeMap = NodePath("../..")
 
 [node name="door17" parent="map/navigation" instance=ExtResource( 2 )]
-position = Vector2( 245.447, 3406.9 )
+position = Vector2( 248, 3408 )
 scale = Vector2( 8, 0.2 )
 posMap = Vector2( -500, -1500 )
+nodeMap = NodePath("../..")
+
+[node name="door36" parent="map/navigation" instance=ExtResource( 2 )]
+position = Vector2( 288, 3264 )
+scale = Vector2( 1, 0.5 )
+posMap = Vector2( -500, -3000 )
 nodeMap = NodePath("../..")
 
 [node name="door18" parent="map/navigation" instance=ExtResource( 2 )]
 position = Vector2( 700.132, 3404.52 )
 scale = Vector2( 8, 0.2 )
 posMap = Vector2( 0, -3000 )
+nodeMap = NodePath("../..")
+
+[node name="capsule" parent="map/navigation" instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 728, 3224 )
+rotation = 0.102974
+scale = Vector2( 4, 0.4 )
+posMap = Vector2( -1000, -3000 )
 nodeMap = NodePath("../..")
 
 [node name="door19" parent="map/navigation" instance=ExtResource( 2 )]
@@ -413,7 +433,7 @@ margin_left = -167.0
 margin_top = -20.0
 margin_right = 172.0
 margin_bottom = 57.0
-custom_fonts/normal_font = SubResource( 6 )
+custom_fonts/normal_font = SubResource( 5 )
 text = "Cargando. . ."
 __meta__ = {
 "_edit_use_anchors_": false
@@ -432,7 +452,7 @@ margin_left = -118.78
 margin_top = -173.63
 margin_right = 139.22
 margin_bottom = -45.6299
-custom_fonts/normal_font = SubResource( 7 )
+custom_fonts/normal_font = SubResource( 6 )
 text = "Instalando software"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -448,7 +468,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="map/interaction/ComputerTwo/Computer/load/ColorRect"]
-anims/load = SubResource( 8 )
+anims/load = SubResource( 7 )
 
 [node name="ColorRect2" type="ColorRect" parent="map/interaction/ComputerTwo/Computer/load"]
 margin_left = -199.442
@@ -460,7 +480,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="map/interaction/ComputerTwo/Computer/load/ColorRect2"]
-anims/load = SubResource( 9 )
+anims/load = SubResource( 8 )
 
 [node name="ColorRect3" type="ColorRect" parent="map/interaction/ComputerTwo/Computer/load"]
 margin_left = -199.442
@@ -472,7 +492,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer3" type="AnimationPlayer" parent="map/interaction/ComputerTwo/Computer/load/ColorRect3"]
-anims/load = SubResource( 10 )
+anims/load = SubResource( 9 )
 
 [node name="ColorRect4" type="ColorRect" parent="map/interaction/ComputerTwo/Computer/load"]
 margin_left = -199.442
@@ -484,7 +504,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer4" type="AnimationPlayer" parent="map/interaction/ComputerTwo/Computer/load/ColorRect4"]
-anims/load = SubResource( 11 )
+anims/load = SubResource( 10 )
 
 [node name="slots" type="Node2D" parent="map/interaction/ComputerTwo"]
 
@@ -499,7 +519,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/interaction/ComputerTwo/slots/slot"]
-shape = SubResource( 5 )
+shape = SubResource( 11 )
 
 [node name="slot2" type="Area2D" parent="map/interaction/ComputerTwo/slots" groups=[
 "slots",
@@ -512,7 +532,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/interaction/ComputerTwo/slots/slot2"]
-shape = SubResource( 5 )
+shape = SubResource( 11 )
 
 [node name="slot3" type="Area2D" parent="map/interaction/ComputerTwo/slots" groups=[
 "slots",
@@ -525,7 +545,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/interaction/ComputerTwo/slots/slot3"]
-shape = SubResource( 5 )
+shape = SubResource( 11 )
 
 [node name="slot4" type="Area2D" parent="map/interaction/ComputerTwo/slots" groups=[
 "slots",
@@ -538,7 +558,74 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/interaction/ComputerTwo/slots/slot4"]
-shape = SubResource( 5 )
+shape = SubResource( 11 )
+
+[node name="Capsule" type="Node2D" parent="map/interaction"]
+position = Vector2( 500, 3000 )
+script = ExtResource( 14 )
+node = "object"
+node2 = "object2"
+node3 = "object3"
+node4 = "object4"
+nodeMap = NodePath("../..")
+
+[node name="Area2D" type="Area2D" parent="map/interaction/Capsule"]
+position = Vector2( 132, 280 )
+collision_layer = 2
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/interaction/Capsule/Area2D"]
+shape = SubResource( 12 )
+one_way_collision_margin = 0.0
+
+[node name="Area2D2" type="Area2D" parent="map/interaction/Capsule"]
+position = Vector2( 188, 296 )
+collision_layer = 2
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/interaction/Capsule/Area2D2"]
+shape = SubResource( 12 )
+one_way_collision_margin = 0.0
+
+[node name="Area2D3" type="Area2D" parent="map/interaction/Capsule"]
+position = Vector2( 244, 296 )
+collision_layer = 2
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/interaction/Capsule/Area2D3"]
+shape = SubResource( 12 )
+one_way_collision_margin = 0.0
+
+[node name="Area2D4" type="Area2D" parent="map/interaction/Capsule"]
+position = Vector2( 292, 304 )
+collision_layer = 2
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/interaction/Capsule/Area2D4"]
+shape = SubResource( 12 )
+one_way_collision_margin = 0.0
+
+[node name="Area2D5" type="Area2D" parent="map/interaction/Capsule"]
+position = Vector2( 708, 296 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/interaction/Capsule/Area2D5"]
+rotation = 0.204204
+shape = SubResource( 13 )
 
 [node name="navigationCam" type="Node2D" parent="."]
 
@@ -566,3 +653,8 @@ nodeMap = NodePath("../../map")
 [connection signal="area_entered" from="map/interaction/ComputerTwo/slots/slot2" to="map/interaction/ComputerTwo" method="_on_slot2_area_entered"]
 [connection signal="area_entered" from="map/interaction/ComputerTwo/slots/slot3" to="map/interaction/ComputerTwo" method="_on_slot3_area_entered"]
 [connection signal="area_entered" from="map/interaction/ComputerTwo/slots/slot4" to="map/interaction/ComputerTwo" method="_on_slot4_area_entered"]
+[connection signal="area_entered" from="map/interaction/Capsule/Area2D" to="map/interaction/Capsule" method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="map/interaction/Capsule/Area2D2" to="map/interaction/Capsule" method="_on_Area2D2_area_entered"]
+[connection signal="area_exited" from="map/interaction/Capsule/Area2D3" to="map/interaction/Capsule" method="_on_Area2D3_area_exited"]
+[connection signal="area_entered" from="map/interaction/Capsule/Area2D4" to="map/interaction/Capsule" method="_on_Area2D4_area_entered"]
+[connection signal="input_event" from="map/interaction/Capsule/Area2D5" to="map/interaction/Capsule" method="_on_Area2D5_input_event"]
