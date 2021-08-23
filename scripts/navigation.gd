@@ -8,6 +8,10 @@ export (Vector2) var posMap
 export (NodePath) var nodeMap
 onready var map = get_node(nodeMap)
 
+#dialog node
+export (NodePath) var node_dialog
+onready var dialog = get_node(node_dialog) 
+
 onready var navNodes = get_tree().get_nodes_in_group('navigation')
 
 func _ready():
@@ -41,6 +45,9 @@ func _process(_delta):
 
 func _on_navigation_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("leftMouse"):
+		
+		if self.name == 'door10' and dialog:
+			dialog.visible = true
 		
 		#navigation cam---------------------------------------------------------
 		if self.name == 'navigationCam' or self.name == 'navigationCam2':

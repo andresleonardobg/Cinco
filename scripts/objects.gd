@@ -25,7 +25,7 @@ func _on_object_input_event(_viewport, event, _shape_idx):
 					if p.occupied == null:
 						queue_free()
 						p.occupied = self.name
-						p.instance_node(self.name)
+						p.instance_node(self.name, softwareLoad)
 						inInvent = true
 				
 					if inInvent:

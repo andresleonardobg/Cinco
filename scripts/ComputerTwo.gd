@@ -37,6 +37,7 @@ func insert_child(area, nm, parent):
 	var n = node.instance()
 	n.name = nm
 	n.block = true
+	n.softwareLoad = true
 	parent.call_deferred("add_child", n)
 	count += 1
 
@@ -48,19 +49,19 @@ func _on_Timer_timeout():
 	
 
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_AnimationPlayer_animation_finished(_anim_name):
 	$Computer/load/ColorRect2/AnimationPlayer2.play("load")
 
 
-func _on_AnimationPlayer2_animation_finished(anim_name):
+func _on_AnimationPlayer2_animation_finished(_anim_name):
 	$Computer/load/ColorRect3/AnimationPlayer3.play("load")
 
 
-func _on_AnimationPlayer3_animation_finished(anim_name):
+func _on_AnimationPlayer3_animation_finished(_anim_name):
 	$Computer/load/ColorRect4/AnimationPlayer4.play("load")
 	
 
-func _on_AnimationPlayer4_animation_finished(anim_name):
+func _on_AnimationPlayer4_animation_finished(_anim_name):
 	$Computer/RichTextLabel2.text = 'carga completa'
 	$Computer/RichTextLabel2.visible = true
 	$Computer/load.visible = false

@@ -11,7 +11,8 @@ func _process(_delta):
 	if len(get_children()) < 2:
 		occupied = null
 
-func instance_node(nod):
+func instance_node(nod, sl):
 	var n = node.instance()
 	n.set_name(nod)
+	n.softwareLoad = sl
 	add_child(n)

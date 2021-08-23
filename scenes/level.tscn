@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://scenes/map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/navigation.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://assets/bgWindow.png" type="Texture" id=12]
 [ext_resource path="res://scripts/ComputerTwo.gd" type="Script" id=13]
 [ext_resource path="res://scripts/Capsule.gd" type="Script" id=14]
+[ext_resource path="res://scenes/dialogs.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "openDoor"
@@ -123,24 +124,24 @@ __meta__ = {
 
 [node name="map" parent="." instance=ExtResource( 1 )]
 script = ExtResource( 8 )
-position_in_map = Vector2( -500, -3000 )
+position_in_map = Vector2( -500, -1500 )
 
 [node name="objects" type="Node2D" parent="map"]
 script = ExtResource( 3 )
 
 [node name="object" parent="map/objects" instance=ExtResource( 4 )]
-position = Vector2( 880, 3144 )
+position = Vector2( 792, 2800 )
 
 [node name="object3" parent="map/objects" instance=ExtResource( 4 )]
-position = Vector2( 528, 3224 )
+position = Vector2( 944, 1352 )
 
 [node name="object4" parent="map/objects" instance=ExtResource( 4 )]
-position = Vector2( 672, 3096 )
+position = Vector2( 328, 4240 )
 
 [node name="object2" parent="map/objects" instance=ExtResource( 4 )]
-position = Vector2( 936, 3232 )
+position = Vector2( 272, 3784 )
 
-[node name="ColorRect" type="Sprite" parent="map"]
+[node name="firtsDoor" type="Sprite" parent="map"]
 position = Vector2( 1712, 200 )
 scale = Vector2( 1.375, 2.125 )
 z_index = -1
@@ -149,7 +150,7 @@ offset = Vector2( 32, 32 )
 script = ExtResource( 6 )
 nodeMap = NodePath("..")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="map/ColorRect"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="map/firtsDoor"]
 anims/openDoor = SubResource( 1 )
 
 [node name="navigation" type="Node2D" parent="map"]
@@ -264,6 +265,7 @@ position = Vector2( 840, 1808 )
 scale = Vector2( 2.8, 1.2 )
 posMap = Vector2( 0, -4000 )
 nodeMap = NodePath("../..")
+node_dialog = NodePath("../../../ColorRect")
 
 [node name="door11" parent="map/navigation" instance=ExtResource( 2 )]
 position = Vector2( 255.12, 2293.9 )
@@ -331,12 +333,6 @@ position = Vector2( 728, 3224 )
 rotation = 0.102974
 scale = Vector2( 4, 0.4 )
 posMap = Vector2( -1000, -3000 )
-nodeMap = NodePath("../..")
-
-[node name="door19" parent="map/navigation" instance=ExtResource( 2 )]
-position = Vector2( 1232.49, 3402.41 )
-scale = Vector2( 8, 0.2 )
-posMap = Vector2( 0, -3000 )
 nodeMap = NodePath("../..")
 
 [node name="door20" parent="map/navigation" instance=ExtResource( 2 )]
@@ -641,7 +637,10 @@ nodeMap = NodePath("../../map")
 
 [node name="Inventory" parent="navigationCam" instance=ExtResource( 5 )]
 
-[connection signal="animation_finished" from="map/ColorRect/AnimationPlayer" to="map/ColorRect" method="_on_AnimationPlayer_animation_finished"]
+[node name="ColorRect" parent="." instance=ExtResource( 15 )]
+visible = false
+
+[connection signal="animation_finished" from="map/firtsDoor/AnimationPlayer" to="map/firtsDoor" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="map/navigation/door3/Timer" to="map/navigation/door3" method="_on_Timer_timeout"]
 [connection signal="input_event" from="map/interaction/interactive" to="map/interaction/interactive" method="_on_interactive_input_event"]
 [connection signal="timeout" from="map/interaction/ComputerTwo/Computer/RichTextLabel2/Timer" to="map/interaction/ComputerTwo" method="_on_Timer_timeout"]

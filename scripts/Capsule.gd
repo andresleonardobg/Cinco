@@ -69,9 +69,8 @@ func _on_Area2D5_input_event(_viewport, event, _shape_idx):
 			if take:
 				for p in positions:
 					if p.occupied == null:
-						queue_free()
-						p.occupied = self.name
-						p.instance_node(self.name)
+						p.occupied = 'capsule'
+						p.instance_node('capsule')
 						take = false
 
 					if take == false:
