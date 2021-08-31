@@ -70,7 +70,7 @@ func _on_Area2D5_input_event(_viewport, event, _shape_idx):
 				for p in positions:
 					if p.occupied == null:
 						p.occupied = 'capsule'
-						p.instance_node('capsule')
+						p.instance_node('capsule', true)
 						take = false
 
 					if take == false:

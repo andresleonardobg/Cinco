@@ -13,6 +13,6 @@ func _process(_delta):
 
 func instance_node(nod, sl):
 	var n = node.instance()
-	n.set_name(nod)
+	n.name = nod
 	n.softwareLoad = sl
 	add_child(n)

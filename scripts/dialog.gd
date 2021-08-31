@@ -5,6 +5,11 @@ var t
 var p = 0
 var canChange = false
 
+
+#doors
+export (NodePath) var door
+onready var doors = get_node(door) 
+
 func _ready():
 	t = texto.split("/")
 	$RichTextLabel.visible_characters = 0
@@ -12,14 +17,23 @@ func _ready():
 	$Timer.start()
 
 func _input(_event):
-	if Input.is_action_just_pressed("click") and canChange:
-		if p < t.size() - 1:
-			p = p+ 1
-			$RichTextLabel.visible_characters = 0
-			$RichTextLabel.text = t[p]
-			canChange = false
-		else:
-			self.visible = false
+	if self.visible:
+		
+		#block objects and doors
+		doors.visible = false
+		
+		
+		if Input.is_action_just_pressed("click") and canChange:
+			if p < t.size() - 1:
+				p = p+ 1
+				$RichTextLabel.visible_characters = 0
+				$RichTextLabel.text = t[p]
+				canChange = false
+			else:
+				self.visible = false
+	else:
+		#unlock objects and doors
+		doors.visible = true
 
 
 func _on_Timer_timeout() -> void:

@@ -119,12 +119,12 @@ extents = Vector2( 98.8723, 26.7461 )
 
 [node name="level" type="Node2D"]
 __meta__ = {
-"_edit_horizontal_guides_": [ 2000.0 ]
+"_edit_horizontal_guides_": [ 2000.0 ],
+"_edit_vertical_guides_": [ 499.859 ]
 }
 
 [node name="map" parent="." instance=ExtResource( 1 )]
 script = ExtResource( 8 )
-position_in_map = Vector2( -500, -1500 )
 
 [node name="objects" type="Node2D" parent="map"]
 script = ExtResource( 3 )
@@ -292,7 +292,7 @@ posMap = Vector2( -500, -2000 )
 nodeMap = NodePath("../..")
 
 [node name="door15" parent="map/navigation" instance=ExtResource( 2 )]
-position = Vector2( 42.1043, 2713.33 )
+position = Vector2( 40, 2720 )
 scale = Vector2( 1.215, 1.185 )
 posMap = Vector2( -500, -2500 )
 nodeMap = NodePath("../..")
@@ -366,13 +366,13 @@ posMap = Vector2( -1500, -1500 )
 nodeMap = NodePath("../..")
 
 [node name="door24" parent="map/navigation" instance=ExtResource( 2 )]
-position = Vector2( 464, 4256 )
+position = Vector2( 440, 4248 )
 scale = Vector2( 1.258, 1.184 )
 posMap = Vector2( -500, -4000 )
 nodeMap = NodePath("../..")
 
 [node name="door34" parent="map/navigation" instance=ExtResource( 2 )]
-position = Vector2( 528, 4256 )
+position = Vector2( 552, 4256 )
 scale = Vector2( 1.258, 1.184 )
 posMap = Vector2( 0, -4000 )
 nodeMap = NodePath("../..")
@@ -520,7 +520,7 @@ shape = SubResource( 11 )
 [node name="slot2" type="Area2D" parent="map/interaction/ComputerTwo/slots" groups=[
 "slots",
 ]]
-position = Vector2( 445.852, 467.899 )
+position = Vector2( 429.719, 467.9 )
 collision_layer = 2
 collision_mask = 2
 __meta__ = {
@@ -533,7 +533,7 @@ shape = SubResource( 11 )
 [node name="slot3" type="Area2D" parent="map/interaction/ComputerTwo/slots" groups=[
 "slots",
 ]]
-position = Vector2( 526.514, 467.9 )
+position = Vector2( 494.249, 467.9 )
 collision_layer = 2
 collision_mask = 2
 __meta__ = {
@@ -546,7 +546,7 @@ shape = SubResource( 11 )
 [node name="slot4" type="Area2D" parent="map/interaction/ComputerTwo/slots" groups=[
 "slots",
 ]]
-position = Vector2( 591.043, 467.899 )
+position = Vector2( 558.778, 467.9 )
 collision_layer = 2
 collision_mask = 2
 __meta__ = {
@@ -559,10 +559,10 @@ shape = SubResource( 11 )
 [node name="Capsule" type="Node2D" parent="map/interaction"]
 position = Vector2( 500, 3000 )
 script = ExtResource( 14 )
-node = "object"
-node2 = "object2"
-node3 = "object3"
-node4 = "object4"
+node = "obj"
+node2 = "obj2"
+node3 = "obj3"
+node4 = "obj4"
 nodeMap = NodePath("../..")
 
 [node name="Area2D" type="Area2D" parent="map/interaction/Capsule"]
@@ -626,12 +626,12 @@ shape = SubResource( 13 )
 [node name="navigationCam" type="Node2D" parent="."]
 
 [node name="navigationCam" parent="navigationCam" instance=ExtResource( 2 )]
-position = Vector2( 50, 250 )
+position = Vector2( 20, 250 )
 posMap = Vector2( 500, 0 )
 nodeMap = NodePath("../../map")
 
 [node name="navigationCam2" parent="navigationCam" instance=ExtResource( 2 )]
-position = Vector2( 450, 250 )
+position = Vector2( 480, 250 )
 posMap = Vector2( -500, 0 )
 nodeMap = NodePath("../../map")
 
@@ -639,6 +639,7 @@ nodeMap = NodePath("../../map")
 
 [node name="ColorRect" parent="." instance=ExtResource( 15 )]
 visible = false
+door = NodePath("../map/navigation")
 
 [connection signal="animation_finished" from="map/firtsDoor/AnimationPlayer" to="map/firtsDoor" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="map/navigation/door3/Timer" to="map/navigation/door3" method="_on_Timer_timeout"]

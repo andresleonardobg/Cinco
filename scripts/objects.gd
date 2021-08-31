@@ -1,6 +1,6 @@
 extends Area2D
 
-var softwareLoad = false
+var softwareLoad
 
 var block = false
 
@@ -32,6 +32,8 @@ func _on_object_input_event(_viewport, event, _shape_idx):
 						break
 
 func _process(_delta):
+	
+	softwareLoad = Global.softwareLoad
 	
 	if take and block == false:
 		self.global_position = get_global_mouse_position()

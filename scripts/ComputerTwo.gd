@@ -37,7 +37,6 @@ func insert_child(area, nm, parent):
 	var n = node.instance()
 	n.name = nm
 	n.block = true
-	n.softwareLoad = true
 	parent.call_deferred("add_child", n)
 	count += 1
 
@@ -66,6 +65,6 @@ func _on_AnimationPlayer4_animation_finished(_anim_name):
 	$Computer/RichTextLabel2.visible = true
 	$Computer/load.visible = false
 	for n in chips:
-		 var obj = n.get_children()
-		 obj[1].block = false
-		 obj[1].softwareLoad = true
+		var obj = n.get_children()
+		obj[1].block = false
+		Global.softwareLoad = true
