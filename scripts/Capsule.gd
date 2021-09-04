@@ -60,6 +60,7 @@ func _on_Area2D4_area_entered(area):
 func _on_Area2D5_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			#poner la carta en el cuarto aqui
 			for n in nav:
 				if n.name == 'door36':
 					n.posMap = Vector2(-1500,-3000)

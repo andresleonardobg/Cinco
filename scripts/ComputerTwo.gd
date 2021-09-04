@@ -61,6 +61,7 @@ func _on_AnimationPlayer3_animation_finished(_anim_name):
 	
 
 func _on_AnimationPlayer4_animation_finished(_anim_name):
+	Global.capsule = true
 	$Computer/RichTextLabel2.text = 'carga completa'
 	$Computer/RichTextLabel2.visible = true
 	$Computer/load.visible = false

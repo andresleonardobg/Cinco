@@ -239,12 +239,14 @@ nodeMap = NodePath("../..")
 [node name="door26" parent="map/navigation" instance=ExtResource( 2 )]
 position = Vector2( 250.637, 1749.03 )
 scale = Vector2( 1.667, 0.593 )
+block = true
 posMap = Vector2( -1000, -4000 )
 nodeMap = NodePath("../..")
 
 [node name="door7" parent="map/navigation" instance=ExtResource( 2 )]
 position = Vector2( 1840, 1808 )
 scale = Vector2( 2.8, 1.2 )
+block = true
 posMap = Vector2( 0, -3000 )
 nodeMap = NodePath("../..")
 

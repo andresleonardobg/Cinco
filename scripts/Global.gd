@@ -1,7 +1,7 @@
 extends Node
 
 var softwareLoad = false
-
+var capsule = false
 
 func insert_child(area, nm, parent):
 	# area.queue_free()

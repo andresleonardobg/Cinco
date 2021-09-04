@@ -48,7 +48,14 @@ func _on_navigation_input_event(_viewport, _event, _shape_idx):
 		if Input.is_action_just_pressed("leftMouse"):
 			
 			if self.name == 'door10' and dialog:
-				dialog.visible = true
+				if Global.capsule == false:
+					dialog.textSelected = 0
+					dialog.visible = true
+				elif Global.capsule:
+					dialog.textSelected = 1
+					dialog.visible = true
+				
+				
 			
 			#navigation cam---------------------------------------------------------
 			if self.name == 'navigationCam' or self.name == 'navigationCam2':
