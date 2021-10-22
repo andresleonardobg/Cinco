@@ -14,22 +14,23 @@ func _ready():
 	self.add_to_group('objects')
 
 func _on_object_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton:
-		if event.pressed and event.button_index == BUTTON_LEFT and block == false:
-			take = true
-		elif !event.pressed and block == false:
-			take = false
-			
-			if inInvent == false:
-				for p in positions:
-					if p.occupied == null:
-						queue_free()
-						p.occupied = self.name
-						p.instance_node(self.name, softwareLoad)
-						inInvent = true
+	if Global.obj == false:
+		if event is InputEventMouseButton:
+			if event.pressed and event.button_index == BUTTON_LEFT and block == false:
+				take = true
+			elif !event.pressed and block == false:
+				take = false
 				
-					if inInvent:
-						break
+				if inInvent == false:
+					for p in positions:
+						if p.occupied == null:
+							queue_free()
+							p.occupied = self.name
+							p.instance_node(self.name, softwareLoad)
+							inInvent = true
+					
+						if inInvent:
+							break
 
 func _process(_delta):
 	

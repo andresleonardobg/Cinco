@@ -74,6 +74,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ButtonPassword" type="Button" parent="block"]
+margin_left = 224.0
+margin_top = 296.0
+margin_right = 294.0
+margin_bottom = 326.0
+text = "Aceptar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="desktop" type="Node2D" parent="."]
 visible = false
 
@@ -151,6 +161,7 @@ shape = SubResource( 3 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/turnOff = SubResource( 4 )
 
+[connection signal="pressed" from="block/ButtonPassword" to="." method="_on_ButtonPassword_pressed"]
 [connection signal="pressed" from="desktop/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="desktop/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="confirmed" from="desktop/AcceptDialog" to="." method="_on_AcceptDialog_confirmed"]

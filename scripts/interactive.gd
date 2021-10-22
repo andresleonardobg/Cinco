@@ -1,6 +1,5 @@
 extends Area2D
 
-onready var nav = get_tree().get_nodes_in_group('navigation')
 export (String) var name_node
 
 export (NodePath) var nodeNav
@@ -12,10 +11,8 @@ func _ready():
 func _process(_delta):
 	if $ComputerLab.visible:
 		$CollisionShape2D.visible = false
-		navInv.visible = false
 	else:
 		$CollisionShape2D.visible = true
-		navInv.visible = true
 
 func _on_interactive_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
@@ -26,3 +23,4 @@ func _on_interactive_input_event(_viewport, event, _shape_idx):
 				
 				if node.name == 'CollisionShape2D':
 					node.visible = false
+					Global.vis = false

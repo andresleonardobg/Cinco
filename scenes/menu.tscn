@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/video/test.webm" type="VideoStream" id=1]
+[ext_resource path="res://scripts/menu.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fadeOut"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 249.765 ],
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 249.73 ]
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="language" type="Control" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Español" type="Button" parent="ColorRect/language"]
+margin_left = 215.0
+margin_top = 180.0
+margin_right = 285.0
+margin_bottom = 210.0
+text = "Español"
+
+[node name="English" type="Button" parent="ColorRect/language"]
+margin_left = 215.0
+margin_top = 280.0
+margin_right = 285.0
+margin_bottom = 310.0
+text = "English"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+stream = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VideoPlayer"]
+anims/fadeOut = SubResource( 1 )
+
+[connection signal="pressed" from="ColorRect/language/Español" to="." method="_on_Espaol_pressed"]
+[connection signal="pressed" from="ColorRect/language/English" to="." method="_on_English_pressed"]
+[connection signal="finished" from="VideoPlayer" to="." method="_on_VideoPlayer_finished"]
+[connection signal="animation_finished" from="VideoPlayer/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

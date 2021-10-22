@@ -8,11 +8,12 @@ export (Vector2) var posMap
 export (NodePath) var nodeMap
 onready var map = get_node(nodeMap)
 
-#dialog node
-export (NodePath) var node_dialog
-onready var dialog = get_node(node_dialog) 
-
 onready var navNodes = get_tree().get_nodes_in_group('navigation')
+
+#panel
+onready var panel = get_node("/root/level/map/interaction/panel/Sprite")
+
+onready var vis = Global.vis
 
 func _ready():
 	pass
@@ -31,10 +32,14 @@ func _process(_delta):
 	var navCam = true
 	
 	if map:
-		if map.global_position.y < -1500:
+		if Global.vis == false:
 			navCam = false
 		else:
-			navCam = true
+			if map.global_position.y < -1500:
+				navCam = false
+			else:
+				navCam = true
+	
 	
 	if navNodes:
 		for n in navNodes:
@@ -46,16 +51,6 @@ func _process(_delta):
 func _on_navigation_input_event(_viewport, _event, _shape_idx):
 	if self.visible:
 		if Input.is_action_just_pressed("leftMouse"):
-			
-			if self.name == 'door10' and dialog:
-				if Global.capsule == false:
-					dialog.textSelected = 0
-					dialog.visible = true
-				elif Global.capsule:
-					dialog.textSelected = 1
-					dialog.visible = true
-				
-				
 			
 			#navigation cam---------------------------------------------------------
 			if self.name == 'navigationCam' or self.name == 'navigationCam2':

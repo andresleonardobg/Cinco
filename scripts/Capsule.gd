@@ -22,14 +22,16 @@ func _ready():
 
 func _process(_delta):
 	if allChips == 4:
+		print('revelado')
 		for d in nav:
 			if d.name == 'capsule':
-				d.visible = true
+				d.block = false
 				allChips = 0
 
 
 func _on_Area2D_area_entered(area):
 	if area.name == node:
+		allChips += 1
 		insert_child(area, 'obj', $Area2D)
 		
 
@@ -39,28 +41,30 @@ func insert_child(area, nm, parent):
 	n.name = nm
 	n.block = true
 	parent.call_deferred("add_child", n)
-	allChips += 1
 
 
 func _on_Area2D2_area_entered(area):
 	if area.name == node2:
+		allChips += 1
 		insert_child(area, 'obj2', $Area2D2)
 
 
 func _on_Area2D3_area_exited(area):
 	if area.name == node3:
+		allChips += 1
 		insert_child(area, 'obj3', $Area2D3)
 
 
 func _on_Area2D4_area_entered(area):
 	if area.name == node4:
+		allChips += 1
 		insert_child(area, 'obj4', $Area2D4)
 
 
 func _on_Area2D5_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			#poner la carta en el cuarto aqui
+			get_node("/root/level/map/interaction/tablet").visible = true
 			for n in nav:
 				if n.name == 'door36':
 					n.posMap = Vector2(-1500,-3000)
