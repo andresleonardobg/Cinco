@@ -13,7 +13,7 @@ onready var navNodes = get_tree().get_nodes_in_group('navigation')
 #panel
 onready var panel = get_node("/root/level/map/interaction/panel/Sprite")
 
-onready var vis = Global.vis
+var vis
 
 func _ready():
 	pass
@@ -28,11 +28,13 @@ func _get_configuration_warning():
 
 func _process(_delta):
 	
+	vis = Global.vis
+	
 	#depens of the position from map, if the navigation nodes are visible or not
 	var navCam = true
 	
 	if map:
-		if Global.vis == false:
+		if vis == false:
 			navCam = false
 		else:
 			if map.global_position.y < -1500:

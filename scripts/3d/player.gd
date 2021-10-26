@@ -12,9 +12,13 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("click"):
 		$CanvasLayer/Control/AnimatedSprite.playing = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	if event is InputEventMouseMotion:
 		rotation_degrees.y -= MOUSE_SENS * event.relative.x
+	
+	if Input.is_action_pressed("ui_cancel"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func _physics_process(delta: float) -> void:
