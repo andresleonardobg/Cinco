@@ -132,10 +132,10 @@ extents = Vector2( 19.5071, 32.0435 )
 [sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 71.9432, 30.2661 )
 
-[sub_resource type="RectangleShape2D" id=18]
+[sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 58.6228, 32.0098 )
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=18]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -705,7 +705,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/interaction/cabina/Area2D2"]
-shape = SubResource( 18 )
+shape = SubResource( 17 )
 
 [node name="note" parent="map/interaction" instance=ExtResource( 22 )]
 position = Vector2( 1500, 1000 )
@@ -737,7 +737,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="navigationCam/fadeIn"]
-anims/fadeIn = SubResource( 17 )
+anims/fadeIn = SubResource( 18 )
 
 [connection signal="animation_finished" from="map/firtsDoor/AnimationPlayer" to="map/firtsDoor" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="map/navigation/door3/Timer" to="map/navigation/door3" method="_on_Timer_timeout"]
@@ -760,4 +760,5 @@ anims/fadeIn = SubResource( 17 )
 [connection signal="input_event" from="map/interaction/tablet" to="map/interaction/tablet" method="_on_tablet_input_event"]
 [connection signal="area_entered" from="map/interaction/cabina/Area2D" to="map/interaction/cabina" method="_on_Area2D_area_entered"]
 [connection signal="input_event" from="map/interaction/cabina/Area2D2" to="map/interaction/cabina" method="_on_Area2D2_input_event"]
+[connection signal="input_event" from="map/interaction/cabina/Area2D2" to="navigationCam/fadeIn" method="_on_Area2D2_input_event"]
 [connection signal="animation_finished" from="navigationCam/fadeIn/AnimationPlayer" to="navigationCam/fadeIn" method="_on_AnimationPlayer_animation_finished"]

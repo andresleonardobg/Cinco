@@ -6,7 +6,8 @@ var texto = [
 	[
 		"El hombre se ha dormido, no le queda mucho tiempo.",
 		"necesito que me ayudes, cinco/quién eres?/eso ya no importa en mi estado, como ves no aparento pasar de hoy y antes de que eso suceda necesito que hagas algo por mi/pero donde estoy/(el viejo toce no puedo hablar)/solo has lo que te digo no creo que haya más opciones por lo mucho que has visto/(toce)/toma este chip ve al cuarto que sigue a este ahí encontraras más de estos, debes reprogramarlos cerca al computador encontraras una memoria con el programa a cargar vuelve cuando hayas terminado/El hombre se ha dormido, no le queda mucho tiempo. Qué lugar es este, estaré en alguna clase de bunker, como llegue aquí",
-		"toma este diagrama y ve a la siguiente puerta es la misma contraseña"
+		"toma este diagrama y ve a la siguiente puerta es la misma contraseña",
+		"dialogo 4"
 	],
 	[
 		#English
