@@ -26,4 +26,4 @@ func _process(delta: float) -> void:
 
 
 func _on_AnimationPlayer2_animation_finished(anim_name: String) -> void:
-	self.queue_free()
+	get_tree().change_scene("res://scenes/3d/flashback.tscn")

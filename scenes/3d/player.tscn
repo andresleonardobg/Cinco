@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/3d/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/fps/gun.png" type="Texture" id=2]
@@ -39,6 +39,21 @@ animations = [ {
 "name": "shot",
 "speed": 10.0
 } ]
+
+[sub_resource type="Animation" id=7]
+resource_name = "fadeIn"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="player" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -84,4 +99,16 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 offset = Vector2( 500, 500 )
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+margin_right = 500.0
+margin_bottom = 500.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ColorRect"]
+anims/fadeIn = SubResource( 7 )
+
 [connection signal="animation_finished" from="CanvasLayer/Control/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="animation_finished" from="CanvasLayer/ColorRect/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

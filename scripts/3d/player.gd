@@ -7,7 +7,8 @@ onready var raycast = $RayCast
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	pass # Replace with function body.
+	
+	$CanvasLayer/ColorRect/AnimationPlayer.play("fadeIn")
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("click"):
@@ -48,3 +49,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_AnimatedSprite_animation_finished() -> void:
 	$CanvasLayer/Control/AnimatedSprite.playing = false
+
+
+func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
+	pass # Replace with function body.
