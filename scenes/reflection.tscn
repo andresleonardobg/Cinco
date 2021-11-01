@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/mirrow_two.png" type="Texture" id=1]
+[ext_resource path="res://assets/mirrow_one.png" type="Texture" id=2]
+[ext_resource path="res://scripts/reflection_bathroom.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fadeIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_vis"
+} ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 176, 24 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 48, 48 )
+
+[node name="reflection" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="principal" type="Node2D" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="principal"]
+margin_right = 500.0
+margin_bottom = 500.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="principal"]
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 1 )
+offset = Vector2( 250, 250 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="principal/Sprite"]
+anims/fadeIn = SubResource( 1 )
+
+[node name="Sprite2" type="Sprite" parent="principal"]
+texture = ExtResource( 2 )
+offset = Vector2( 250, 250 )
+
+[node name="Area2D" type="Area2D" parent="principal"]
+position = Vector2( 256, 464 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="principal/Area2D"]
+shape = SubResource( 2 )
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="AnimatedSprite" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( 152, 104 )
+shape = SubResource( 3 )
+
+[connection signal="animation_finished" from="principal/Sprite/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="input_event" from="principal/Area2D" to="." method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Area2D2" to="." method="_on_Area2D2_input_event"]

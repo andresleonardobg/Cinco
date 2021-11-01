@@ -12,6 +12,7 @@ var inRoom = true
 var firts_dialog = true
 var dialog = load("res://scenes/dialogs.tscn")
 var node_level
+var taller
 
 #nav visible and block obj
 var vis = true
@@ -27,26 +28,24 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	#dialogos
-	if map:
-		if get_tree().get_current_scene().get_name() == "level":
+	if get_tree().get_current_scene().get_name() == "level":
+		if map:
+			node_level = get_node("/root/level")
+			taller = get_node("/root/level/map/navigation/door7")
 		#cuando se encuentra por primera vez al viejo
 			if map.y == -4000 and map.x == 0 and firts_dialog:
 				show_dialog(1, node_level)
 				firts_dialog = false
 			#luego de cargar el software
 			if map.y == -4000 and softwareLoad:
-				show_dialog(2, node_level)
 				softwareLoad = false
-				for d in nav:
-					if d.name == 'door7':
-						d.block = false
+				taller.block = false
+				show_dialog(2, node_level)
 	
 	#abrir cabina principal
-	if get_tree().get_current_scene().get_name() == "level":
 		if cabina:
-			for d in nav:
-					if d.name != null and d.name == 'door26':
-						d.block = false
+			var node_cabina = get_node("/root/level/map/navigation/door26")
+			node_cabina.block = false
 	
 	
 	#nav visible
