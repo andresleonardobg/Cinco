@@ -5,6 +5,16 @@ const MOUSE_SENS = 0.5
 
 onready var raycast = $RayCast
 
+#dialog
+var dialog = load("res://scenes/dialogs.tscn")
+
+var count = 0
+
+func show_dialog(t, node):
+	var d = dialog.instance()
+	d.textSelected = t
+	node.add_child(d)
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
@@ -48,8 +58,20 @@ func _physics_process(delta: float) -> void:
 			print("funciona")
 
 func _on_AnimatedSprite_animation_finished() -> void:
+	
 	$CanvasLayer/Control/AnimatedSprite.playing = false
 
 
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
-	pass # Replace with function body.
+	count += 1
+	print(count)
+	if count == 2:
+		get_tree().quit()
+	print(anim_name)
+
+
+func _on_Area_body_entered(body: Node) -> void:
+	if body.name == "myself":
+		print('funciona')
+		show_dialog(5, $CanvasLayer)
+		$CanvasLayer/ColorRect/AnimationPlayer.play_backwards("fadeIn")

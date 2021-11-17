@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/3d/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/fps/floor.jpg" type="Texture" id=2]
 [ext_resource path="res://scenes/3d/enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/3d/myself.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 500, 2, 500 )
@@ -29,6 +30,10 @@ fog_sun_color = Color( 1, 1, 1, 1 )
 fog_depth_begin = 0.0
 fog_depth_end = 40.0
 
+[sub_resource type="BoxShape" id=6]
+
+[sub_resource type="BoxShape" id=7]
+
 [node name="flashback" type="Spatial"]
 
 [node name="floor" type="MeshInstance" parent="."]
@@ -41,28 +46,56 @@ material/0 = SubResource( 2 )
 shape = SubResource( 3 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2.3, 0 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2.3, -149.627 )
 
 [node name="enemy" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 18 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9427, 2.3, -82.5783 )
 
 [node name="enemy2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.36524, 2.3, 25.2214 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.308, 2.3, -75.3569 )
 
 [node name="enemy3" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8993, 2.3, 25.2214 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0434113, 2.3, -75.3569 )
 
 [node name="enemy4" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8993, 2.3, 46.8285 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0434113, 2.3, -53.7498 )
 
 [node name="enemy5" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6014, 2.3, 46.8285 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6587, 2.3, -53.7498 )
 
 [node name="enemy6" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6014, 2.3, 70.9229 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6587, 2.3, -29.6554 )
 
 [node name="enemy7" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0984, 2.3, 70.9229 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15569, 2.3, -29.6554 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 5 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 20, 0, 0, 0, 500, 41.8109, 0, 0 )
+shape = SubResource( 6 )
+
+[node name="StaticBody2" type="StaticBody" parent="."]
+
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody2"]
+transform = Transform( 1, 0, 0, 0, 20, 0, 0, 0, 500, -45.2727, 0, 0 )
+shape = SubResource( 6 )
+
+[node name="StaticBody3" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody3"]
+transform = Transform( 100, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -228.681 )
+shape = SubResource( 7 )
+
+[node name="StaticBody4" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 136.279 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody4"]
+transform = Transform( 100, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22.9033 )
+shape = SubResource( 7 )
+
+[node name="myself" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, -12.7916 )
