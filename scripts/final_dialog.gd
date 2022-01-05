@@ -9,6 +9,7 @@ func _ready() -> void:
 
 func dialog():
 	var d = dialog.instance()
+	d.rect_position = Vector2(50, 20)
 	d.textSelected = 3
 	self.add_child(d)
 

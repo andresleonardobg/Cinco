@@ -28,7 +28,7 @@ func _get_configuration_warning():
 
 func _process(_delta):
 	
-	vis = Global.vis
+	vis = true
 	
 	#depens of the position from map, if the navigation nodes are visible or not
 	var navCam = true
@@ -59,8 +59,8 @@ func _on_navigation_input_event(_viewport, _event, _shape_idx):
 				map.global_position += posMap
 				print(map.global_position)
 				if map.global_position.x > 0:
-					map.global_position.x = -1500
-				elif map.global_position.x < -1500:
+					map.global_position.x = -1800
+				elif map.global_position.x < -1800:
 					map.global_position.x = 0
 			#-----------------------------------------------------------------------
 

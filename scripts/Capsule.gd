@@ -67,9 +67,9 @@ func _on_Area2D5_input_event(_viewport, event, _shape_idx):
 			get_node("/root/level/map/interaction/tablet").visible = true
 			for n in nav:
 				if n.name == 'door36':
-					n.posMap = Vector2(-1500,-3000)
+					n.posMap = Vector2(-1800,-3000)
 
-			map.global_position = Vector2(-1500,-3000)
+			map.global_position = Vector2(-1800,-3000)
 
 			if take:
 				for p in positions:

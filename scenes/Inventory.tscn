@@ -8,17 +8,17 @@
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 self_modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 250, 450 )
+position = Vector2( 550, 250 )
 texture = ExtResource( 2 )
 
 [node name="Position" parent="." instance=ExtResource( 1 )]
-position = Vector2( 64, 448 )
+position = Vector2( 552, 64 )
 
 [node name="Position2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 184, 448 )
+position = Vector2( 552, 192 )
 
 [node name="Position3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 312, 448 )
+position = Vector2( 552, 328 )
 
 [node name="Position4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 448, 448 )
+position = Vector2( 552, 448 )

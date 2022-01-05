@@ -87,15 +87,15 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Control"]
-position = Vector2( 392, 296 )
+position = Vector2( 512, 296 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 6 )
 animation = "shot"
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-margin_left = 234.0
+margin_left = 300.0
 margin_top = 234.0
-margin_right = 266.0
+margin_right = 332.0
 margin_bottom = 267.0
 texture = ExtResource( 3 )
 __meta__ = {
@@ -103,13 +103,15 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer"]
-scale = Vector2( 0.5, 0.5 )
+modulate = Color( 1, 1, 1, 0.54902 )
+scale = Vector2( 0.6, 0.5 )
 texture = ExtResource( 4 )
 offset = Vector2( 500, 500 )
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 margin_right = 500.0
 margin_bottom = 500.0
+rect_scale = Vector2( 1.2, 1 )
 color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_use_anchors_": false

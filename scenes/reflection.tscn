@@ -38,7 +38,7 @@ tracks/1/keys = {
 extents = Vector2( 176, 24 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 48, 48 )
+extents = Vector2( 36, 40 )
 
 [node name="reflection" type="Node2D"]
 script = ExtResource( 3 )
@@ -74,7 +74,7 @@ shape = SubResource( 2 )
 [node name="Area2D2" type="Area2D" parent="."]
 
 [node name="AnimatedSprite" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2( 152, 104 )
+position = Vector2( 208, 224 )
 shape = SubResource( 3 )
 
 [connection signal="animation_finished" from="principal/Sprite/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
