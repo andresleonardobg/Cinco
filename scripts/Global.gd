@@ -6,6 +6,7 @@ var map
 var cabina
 
 onready var nav = get_tree().get_nodes_in_group('navigation')
+onready var lights = get_tree().get_nodes_in_group('lights')
 
 #dialogos
 var inRoom = true
@@ -61,3 +62,13 @@ func insert_child(area, nm, parent):
 	n.name = nm
 	n.block = true
 	parent.call_deferred("add_child", n)
+
+func lights_state(state : bool):
+	for l in lights:
+		l.visible = state
+	
+	if state:
+		print('prendidas')
+	else:
+		print('apagadas')
+	

@@ -11,9 +11,11 @@ func _ready():
 
 func _process(_delta):
 	if $ComputerLab.visible:
+		Global.lights_state(false)
 		$CollisionShape2D.visible = false
 		note.visible = false
 	else:
+		Global.lights_state(true)
 		$CollisionShape2D.visible = true
 		note.visible = true
 

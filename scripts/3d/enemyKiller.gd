@@ -11,6 +11,7 @@ func _ready():
  
 func _physics_process(delta):
 	
+	
  
 	var vec_to_player = player.translation - translation
 	print(vec_to_player)
