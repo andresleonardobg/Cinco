@@ -11,16 +11,15 @@ func _ready():
 
 func _process(_delta):
 	if $ComputerLab.visible:
-		Global.lights_state(false)
 		$CollisionShape2D.visible = false
 		note.visible = false
 	else:
-		Global.lights_state(true)
 		$CollisionShape2D.visible = true
 		note.visible = true
 
 func _on_interactive_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
+		Global.lights_state = false
 		if event.pressed and BUTTON_LEFT:
 			for node in get_children():
 				if node.name == name_node:

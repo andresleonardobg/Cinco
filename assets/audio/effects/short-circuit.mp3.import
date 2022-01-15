@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/short-circuit.mp3-73a599ce7aeb124768ce3bb66a13883d.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/effects/short-circuit.mp3"
+dest_files=[ "res://.import/short-circuit.mp3-73a599ce7aeb124768ce3bb66a13883d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

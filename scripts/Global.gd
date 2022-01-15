@@ -4,6 +4,7 @@ var softwareLoad = false
 var capsule = false
 var map
 var cabina
+var lights_state = true
 
 onready var nav = get_tree().get_nodes_in_group('navigation')
 onready var lights = get_tree().get_nodes_in_group('lights')
@@ -46,15 +47,23 @@ func _process(delta: float) -> void:
 	#abrir cabina principal
 		if cabina:
 			var node_cabina = get_node("/root/level/map/navigation/door26")
-			node_cabina.block = false
-	
-	
+			node_cabina.block = false	
 	#nav visible
 		for d in nav:
 			d.visible = vis
 	
 	else:
 		pass
+	
+		
+	#lights
+	if lights_state:
+		print('on')
+	else:
+		print('off')
+
+	for l in lights:
+		l.visible = lights_state
 
 func insert_child(area, nm, parent):
 	# area.queue_free()
@@ -62,13 +71,3 @@ func insert_child(area, nm, parent):
 	n.name = nm
 	n.block = true
 	parent.call_deferred("add_child", n)
-
-func lights_state(state : bool):
-	for l in lights:
-		l.visible = state
-	
-	if state:
-		print('prendidas')
-	else:
-		print('apagadas')
-	

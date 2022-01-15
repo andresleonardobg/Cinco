@@ -5,4 +5,4 @@ func _on_panel_input_event(viewport: Node, event: InputEvent, shape_idx: int) ->
 	if Input.is_action_just_pressed("click"):
 		$Sprite.visible = true
 		Global.vis = false
-		Global.lights_state(false)
+		Global.lights_state = false

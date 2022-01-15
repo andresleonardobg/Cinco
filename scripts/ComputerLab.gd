@@ -33,6 +33,7 @@ func _on_AcceptDialog_confirmed():
 
 func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
+		Global.lights_state = true
 		if event.pressed and BUTTON_LEFT:
 			self.visible = false
 			Global.vis = true

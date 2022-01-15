@@ -23,7 +23,7 @@ func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 
 func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if Input.is_action_just_pressed("click"):
-		Global.lights_state(true)
+		Global.lights_state = true
 		$principal.visible = false
 		$principal/ColorRect.visible = true
 		$Area2D2.visible = true
@@ -33,7 +33,7 @@ func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int) -
 
 func _on_Area2D2_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if Input.is_action_just_pressed("click"):
-		Global.lights_state(false)
+		Global.lights_state = false
 		$principal.visible = true
 		$Area2D2.visible = false
 		Global.vis = false
