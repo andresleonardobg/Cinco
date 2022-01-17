@@ -8,6 +8,7 @@ var lights_state = true
 
 onready var nav = get_tree().get_nodes_in_group('navigation')
 onready var lights = get_tree().get_nodes_in_group('lights')
+onready var nav_cam = get_tree().get_nodes_in_group('nav_cam')
 
 #dialogos
 var inRoom = true
@@ -49,21 +50,23 @@ func _process(delta: float) -> void:
 			var node_cabina = get_node("/root/level/map/navigation/door26")
 			node_cabina.block = false	
 	#nav visible
+		if vis:
+			print('nav')
+		else:
+			print('no nav')
+	
 		for d in nav:
 			d.visible = vis
-	
+		
+		for d in nav_cam:
+			d.visible = vis
+		
+		#lights
+		for l in lights:
+			l.visible = lights_state
 	else:
 		pass
-	
-		
-	#lights
-	if lights_state:
-		print('on')
-	else:
-		print('off')
 
-	for l in lights:
-		l.visible = lights_state
 
 func insert_child(area, nm, parent):
 	# area.queue_free()

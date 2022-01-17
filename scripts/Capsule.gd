@@ -64,6 +64,7 @@ func _on_Area2D4_area_entered(area):
 func _on_Area2D5_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			$Area2D5/capsule.queue_free()
 			get_node("/root/level/map/interaction/tablet").visible = true
 			for n in nav:
 				if n.name == 'door36':
@@ -75,7 +76,7 @@ func _on_Area2D5_input_event(_viewport, event, _shape_idx):
 				for p in positions:
 					if p.occupied == null:
 						p.occupied = 'capsule'
-						p.instance_node('capsule', true)
+						p.instance_node_capsule('capsule', true)
 						take = false
 
 					if take == false:

@@ -10,7 +10,7 @@ func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int) -
 	if Input.is_action_pressed("click"):
 		
 		Global.lights_state = false
-		
+		Global.vis = false
 		$small.visible = false
 		$big.visible = true
 		Global.vis = false
@@ -21,7 +21,7 @@ func _on_Area2D2_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 	if Input.is_action_pressed("click"):
 		
 		Global.lights_state = true
-		
+		Global.vis = true
 		$small.visible = true
 		$big.visible = false
 		Global.vis = true

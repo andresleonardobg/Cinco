@@ -14,9 +14,9 @@ extents = Vector2( 189, 182 )
 script = ExtResource( 1 )
 
 [node name="small" type="Sprite" parent="."]
-position = Vector2( 146.731, 401.951 )
-rotation = -1.0472
-scale = Vector2( 0.351882, 0.351882 )
+position = Vector2( 281.024, 318.724 )
+rotation = -0.602139
+scale = Vector2( 0.192843, 0.209347 )
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true

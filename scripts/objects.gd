@@ -10,7 +10,10 @@ var inInvent = false
 
 onready var positions = get_tree().get_nodes_in_group('positions')
 
+var texture_ = preload("res://assets/chip.png")
+
 func _ready():
+	$Sprite.texture = texture_
 	self.add_to_group('objects')
 
 func _on_object_input_event(_viewport, event, _shape_idx):

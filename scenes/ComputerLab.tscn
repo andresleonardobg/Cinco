@@ -1,19 +1,12 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/ComputerLab.gd" type="Script" id=1]
 [ext_resource path="res://assets/computador.png" type="Texture" id=2]
 [ext_resource path="res://assets/bgWindow.png" type="Texture" id=3]
 [ext_resource path="res://assets/candado.png" type="Texture" id=4]
 [ext_resource path="res://assets/note.png" type="Texture" id=5]
-[ext_resource path="res://resources/ComputerLab.tres" type="DynamicFont" id=6]
-[ext_resource path="res://resources/themeFont.tres" type="Theme" id=7]
-
-[sub_resource type="DynamicFontData" id=1]
-font_path = "res://assets/font/Inconsolata-VariableFont_wdth,wght.ttf"
-
-[sub_resource type="DynamicFont" id=2]
-size = 25
-font_data = SubResource( 1 )
+[ext_resource path="res://resources/theme_cinco.tres" type="Theme" id=6]
+[ext_resource path="res://assets/light-2.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 200, 20 )
@@ -51,11 +44,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 112.0
+margin_left = 144.0
 margin_top = 192.0
-margin_right = 424.0
-margin_bottom = 219.0
-custom_fonts/font = SubResource( 2 )
+margin_right = 376.0
+margin_bottom = 235.0
+theme = ExtResource( 6 )
 text = "Intruduzca la contraseña"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -66,6 +59,7 @@ margin_left = 160.0
 margin_top = 256.0
 margin_right = 368.0
 margin_bottom = 280.0
+theme = ExtResource( 6 )
 align = 1
 max_length = 4
 secret = true
@@ -79,6 +73,7 @@ margin_left = 224.0
 margin_top = 296.0
 margin_right = 294.0
 margin_bottom = 326.0
+theme = ExtResource( 6 )
 text = "Aceptar"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -102,10 +97,11 @@ __meta__ = {
 }
 
 [node name="WindowDialog" type="WindowDialog" parent="desktop"]
-margin_left = 176.0
-margin_top = 104.0
-margin_right = 432.0
-margin_bottom = 296.0
+margin_left = 208.0
+margin_top = 96.0
+margin_right = 464.0
+margin_bottom = 288.0
+theme = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -115,7 +111,6 @@ margin_left = 16.0
 margin_top = 16.0
 margin_right = 240.0
 margin_bottom = 240.0
-custom_fonts/normal_font = ExtResource( 6 )
 text = "Ya has despertado, bien. Para que puedas salir de este nivel en el siguiente icono del escritorio podras abrir el compartimiento atras de ti y la puerta del pasillo para que puedas subir. Te espero arriba."
 __meta__ = {
 "_edit_use_anchors_": false
@@ -140,9 +135,9 @@ margin_left = 192.0
 margin_top = 264.0
 margin_right = 416.0
 margin_bottom = 334.0
-theme = ExtResource( 7 )
+theme = ExtResource( 6 )
 window_title = "Por favor, Confirma..."
-dialog_text = "      Abrir puerta"
+dialog_text = "   Abrir puerta"
 dialog_autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -160,6 +155,12 @@ shape = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/turnOff = SubResource( 4 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( -216, -136 )
+scale = Vector2( 1.984, 1.616 )
+texture = ExtResource( 8 )
+offset = Vector2( 250, 250 )
 
 [connection signal="pressed" from="block/ButtonPassword" to="." method="_on_ButtonPassword_pressed"]
 [connection signal="pressed" from="desktop/Button" to="." method="_on_Button_pressed"]
