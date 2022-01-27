@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=72 format=2]
 
 [ext_resource path="res://scenes/map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/navigation.tscn" type="PackedScene" id=2]
@@ -207,7 +207,355 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 10.2783, 51.3213 )
 
+[sub_resource type="Animation" id=24]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -384.453, 408.726 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -384.453, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 498.726, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "embedded"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 408.724, -0.25, 0, 0.3, -86.7264, 498.724, -0.2, -176.726, 0.1, 8.15793 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+
+[sub_resource type="Animation" id=26]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -345.687, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 498.726, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "embedded"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 408.726, -0.25, 0, 0.2, -160.682, 498.726, -0.2, -102.775, 0.00263124, 1.35212 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+
+[sub_resource type="Animation" id=28]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -306.702, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 498.725, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "embedded"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 408.725, -0.186888, 57.7026, 0.2, -61.7511, 498.725, -0.2, -176.634, 0.0915362, 80.8422 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+
+[sub_resource type="Animation" id=30]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -270.091, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 498.725, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=31]
+resource_name = "embedded"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 408.725, -0.181415, 59.7747, 0.2, -65.8983, 498.725, -0.2, -155.898, 0.101794, 79.3473 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+
 [sub_resource type="RectangleShape2D" id=12]
+
+[sub_resource type="Animation" id=32]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 196.621, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 352.162, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=33]
+resource_name = "embedded"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 214.452, -0.25, 0, 0.25, 0, 214.452, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 302.162, -0.25, 0, 0.2, -12.5406, 342.162, -0.2, -94.2528, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+
+[sub_resource type="Animation" id=34]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 226.203, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 352.741, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=35]
+resource_name = "embedded"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 233.683, -0.25, 0, 0.25, 0, 233.683, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 302.162, -0.25, 0, 0.2, -14.624, 342.162, -0.2, -100.503, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+
+[sub_resource type="Animation" id=36]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 250.027, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 353.505, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=37]
+resource_name = "embedded"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 252.502, -0.25, 0, 0.25, 0, 252.502, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 302.162, -0.25, 0, 0.2, -15.3184, 342.162, -0.2, -86.6139, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+
+[sub_resource type="Animation" id=38]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 275.606, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 354.013, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=39]
+resource_name = "embedded"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 272.954, -0.25, 0, 0.25, 0, 272.954, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 302.162, -0.25, 0, 0.2, -15.874, 342.162, -0.2, -95.725, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
 
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 98.8723, 26.7461 )
@@ -220,6 +568,42 @@ extents = Vector2( 13.1998, 17.4447 )
 
 [sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 18.7699, 22.6985 )
+
+[sub_resource type="Animation" id=40]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 490, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 400.701, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=41]
+resource_name = "embedded"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 490, -0.25, 0, 0.2, 74.4937, 555, -0.3, -146.538, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
 
 [sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 58.6228, 32.0098 )
@@ -334,7 +718,7 @@ texture = ExtResource( 25 )
 energy = 0.68
 
 [node name="Light2D17" type="Light2D" parent="map/lights/lights"]
-position = Vector2( 917.071, 3710.91 )
+position = Vector2( 961.849, 3716.59 )
 scale = Vector2( 1.74737, 1.61561 )
 texture = ExtResource( 25 )
 energy = 0.68
@@ -863,7 +1247,7 @@ anims/load = SubResource( 10 )
 [node name="slots" type="Node2D" parent="map/interaction/ComputerTwo"]
 
 [node name="slot" type="Area2D" parent="map/interaction/ComputerTwo/slots" groups=["slots"]]
-position = Vector2( -384.453, 487.926 )
+position = Vector2( -384.453, 498.726 )
 collision_layer = 2
 collision_mask = 2
 __meta__ = {
@@ -872,6 +1256,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/interaction/ComputerTwo/slots/slot"]
 shape = SubResource( 11 )
+
+[node name="move" type="AnimationPlayer" parent="map/interaction/ComputerTwo/slots/slot"]
+anims/RESET = SubResource( 24 )
+anims/embedded = SubResource( 25 )
 
 [node name="slot2" type="Area2D" parent="map/interaction/ComputerTwo/slots" groups=["slots"]]
 position = Vector2( -345.687, 498.726 )
@@ -884,8 +1272,12 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/interaction/ComputerTwo/slots/slot2"]
 shape = SubResource( 11 )
 
+[node name="move" type="AnimationPlayer" parent="map/interaction/ComputerTwo/slots/slot2"]
+anims/RESET = SubResource( 26 )
+anims/embedded = SubResource( 27 )
+
 [node name="slot3" type="Area2D" parent="map/interaction/ComputerTwo/slots" groups=["slots"]]
-position = Vector2( -306.702, 489.854 )
+position = Vector2( -306.702, 498.725 )
 collision_layer = 2
 collision_mask = 2
 __meta__ = {
@@ -895,8 +1287,12 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/interaction/ComputerTwo/slots/slot3"]
 shape = SubResource( 11 )
 
+[node name="move" type="AnimationPlayer" parent="map/interaction/ComputerTwo/slots/slot3"]
+anims/RESET = SubResource( 28 )
+anims/embedded = SubResource( 29 )
+
 [node name="slot4" type="Area2D" parent="map/interaction/ComputerTwo/slots" groups=["slots"]]
-position = Vector2( -270.091, 482.139 )
+position = Vector2( -270.091, 498.725 )
 collision_layer = 2
 collision_mask = 2
 __meta__ = {
@@ -905,6 +1301,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/interaction/ComputerTwo/slots/slot4"]
 shape = SubResource( 11 )
+
+[node name="move" type="AnimationPlayer" parent="map/interaction/ComputerTwo/slots/slot4"]
+anims/RESET = SubResource( 30 )
+anims/embedded = SubResource( 31 )
 
 [node name="Capsule" type="Node2D" parent="map/interaction"]
 position = Vector2( 500, 3000 )
@@ -917,6 +1317,7 @@ nodeMap = NodePath("../..")
 
 [node name="Area2D" type="Area2D" parent="map/interaction/Capsule"]
 position = Vector2( 196.621, 352.162 )
+scale = Vector2( 0.5, 1 )
 collision_layer = 2
 collision_mask = 2
 __meta__ = {
@@ -927,8 +1328,13 @@ __meta__ = {
 shape = SubResource( 12 )
 one_way_collision_margin = 0.0
 
+[node name="move" type="AnimationPlayer" parent="map/interaction/Capsule/Area2D"]
+anims/RESET = SubResource( 32 )
+anims/embedded = SubResource( 33 )
+
 [node name="Area2D2" type="Area2D" parent="map/interaction/Capsule"]
 position = Vector2( 226.203, 352.741 )
+scale = Vector2( 0.5, 1 )
 collision_layer = 2
 collision_mask = 2
 __meta__ = {
@@ -939,8 +1345,13 @@ __meta__ = {
 shape = SubResource( 12 )
 one_way_collision_margin = 0.0
 
+[node name="move" type="AnimationPlayer" parent="map/interaction/Capsule/Area2D2"]
+anims/RESET = SubResource( 34 )
+anims/embedded = SubResource( 35 )
+
 [node name="Area2D3" type="Area2D" parent="map/interaction/Capsule"]
 position = Vector2( 250.027, 353.505 )
+scale = Vector2( 0.5, 1 )
 collision_layer = 2
 collision_mask = 2
 __meta__ = {
@@ -951,8 +1362,13 @@ __meta__ = {
 shape = SubResource( 12 )
 one_way_collision_margin = 0.0
 
+[node name="move" type="AnimationPlayer" parent="map/interaction/Capsule/Area2D3"]
+anims/RESET = SubResource( 36 )
+anims/embedded = SubResource( 37 )
+
 [node name="Area2D4" type="Area2D" parent="map/interaction/Capsule"]
 position = Vector2( 275.606, 354.013 )
+scale = Vector2( 0.5, 1 )
 collision_layer = 2
 collision_mask = 2
 __meta__ = {
@@ -962,6 +1378,10 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/interaction/Capsule/Area2D4"]
 shape = SubResource( 12 )
 one_way_collision_margin = 0.0
+
+[node name="move" type="AnimationPlayer" parent="map/interaction/Capsule/Area2D4"]
+anims/RESET = SubResource( 38 )
+anims/embedded = SubResource( 39 )
 
 [node name="Area2D5" type="Area2D" parent="map/interaction/Capsule"]
 position = Vector2( 953.612, 348.384 )
@@ -1026,10 +1446,14 @@ shape = SubResource( 16 )
 
 [node name="Sprite" type="Sprite" parent="map/interaction/cabina/Area2D"]
 visible = false
-position = Vector2( 554, 400.701 )
+position = Vector2( 490, 400.701 )
 rotation = 1.97571
 scale = Vector2( 0.086475, 0.1 )
 texture = ExtResource( 30 )
+
+[node name="move" type="AnimationPlayer" parent="map/interaction/cabina/Area2D/Sprite"]
+anims/RESET = SubResource( 40 )
+anims/embedded = SubResource( 41 )
 
 [node name="Area2D2" type="Area2D" parent="map/interaction/cabina"]
 visible = false
@@ -1108,7 +1532,6 @@ anims/fadeIn = SubResource( 19 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 28 )
-autoplay = true
 mix_target = 1
 
 [connection signal="animation_finished" from="map/firtsDoor/AnimationPlayer" to="map/firtsDoor" method="_on_AnimationPlayer_animation_finished"]
@@ -1131,6 +1554,7 @@ mix_target = 1
 [connection signal="input_event" from="map/interaction/panel" to="map/interaction/panel" method="_on_panel_input_event"]
 [connection signal="input_event" from="map/interaction/tablet" to="map/interaction/tablet" method="_on_tablet_input_event"]
 [connection signal="area_entered" from="map/interaction/cabina/Area2D" to="map/interaction/cabina" method="_on_Area2D_area_entered"]
+[connection signal="animation_finished" from="map/interaction/cabina/Area2D/Sprite/move" to="map/interaction/cabina" method="_on_move_animation_finished"]
 [connection signal="input_event" from="map/interaction/cabina/Area2D2" to="map/interaction/cabina" method="_on_Area2D2_input_event"]
 [connection signal="animation_finished" from="map/interaction/cabina/ColorRect/AnimationPlayer" to="map/interaction/cabina" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="navigationCam/fadeIn/AnimationPlayer" to="navigationCam/fadeIn" method="_on_AnimationPlayer_animation_finished"]

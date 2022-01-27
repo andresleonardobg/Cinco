@@ -17,20 +17,24 @@ func _process(_delta):
 func _on_slot_area_entered(area):
 	if area.name == 'object':
 		insert_child(area, 'obj', $slots/slot)
+		$slots/slot/move.play("embedded")
 
 func _on_slot2_area_entered(area):
 	if area.name == 'object2':
 		insert_child(area, 'obj2', $slots/slot2)
+		$slots/slot2/move.play("embedded")
 
 
 func _on_slot3_area_entered(area):
 	if area.name == 'object3':
 		insert_child(area, 'obj3', $slots/slot3)
+		$slots/slot3/move.play("embedded")
 
 
 func _on_slot4_area_entered(area):
 	if area.name == 'object4':
 		insert_child(area, 'obj4', $slots/slot4)
+		$slots/slot4/move.play("embedded")
 
 func insert_child(area, nm, parent):
 	area.queue_free()
@@ -67,5 +71,5 @@ func _on_AnimationPlayer4_animation_finished(_anim_name):
 	$Computer/load.visible = false
 	for n in chips:
 		var obj = n.get_children()
-		obj[1].block = false
+		obj[2].block = false
 		Global.softwareLoad = true

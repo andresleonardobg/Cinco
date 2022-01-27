@@ -33,7 +33,7 @@ func _on_Area2D_area_entered(area):
 	if area.name == node:
 		allChips += 1
 		insert_child(area, 'obj', $Area2D)
-		
+		$Area2D/move.play("embedded")
 
 func insert_child(area, nm, parent):
 	area.queue_free()
@@ -47,18 +47,21 @@ func _on_Area2D2_area_entered(area):
 	if area.name == node2:
 		allChips += 1
 		insert_child(area, 'obj2', $Area2D2)
+		$Area2D2/move.play("embedded")
 
 
 func _on_Area2D3_area_exited(area):
 	if area.name == node3:
 		allChips += 1
 		insert_child(area, 'obj3', $Area2D3)
+		$Area2D3/move.play("embedded")
 
 
 func _on_Area2D4_area_entered(area):
 	if area.name == node4:
 		allChips += 1
 		insert_child(area, 'obj4', $Area2D4)
+		$Area2D4/move.play("embedded")
 
 
 func _on_Area2D5_input_event(_viewport, event, _shape_idx):
