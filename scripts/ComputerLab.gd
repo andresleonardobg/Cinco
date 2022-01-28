@@ -40,6 +40,9 @@ func _on_Area2D_input_event(_viewport, event, _shape_idx):
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
 	$desktop.queue_free()
+	
+	if get_node("../../../lights/lights/Light2D10"):
+		get_node("../../../lights/lights/Light2D10").queue_free()
 
 
 func _on_ButtonPassword_pressed() -> void:

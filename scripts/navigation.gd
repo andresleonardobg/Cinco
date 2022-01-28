@@ -16,6 +16,7 @@ onready var panel = get_node("/root/level/map/interaction/panel/Sprite")
 var vis
 
 func _ready():
+	print(nodeMap)
 	pass
 
 #warning signal on node-----------------------------------------------------
@@ -73,6 +74,9 @@ func _on_navigation_input_event(_viewport, _event, _shape_idx):
 						
 						if n.name == 'Timer':
 							n.start()
+						
+						if get_node("../door3/doors/AnimationPlayer"):
+							get_node("../door3/doors/AnimationPlayer").play("opendoors")
 				else:
 					map.global_position = posMap
 			#-----------------------------------------------------------------------
@@ -96,3 +100,7 @@ func _on_Timer_timeout():
 		if n.name == 'Timer':
 			n.queue_free()
 #--------------------------------------------------------------------------------
+
+#delete doors door3 node
+func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
+	get_node("../door3/doors").queue_free()

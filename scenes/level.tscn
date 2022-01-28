@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=2]
+[gd_scene load_steps=76 format=2]
 
 [ext_resource path="res://scenes/map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/navigation.tscn" type="PackedScene" id=2]
@@ -30,6 +30,8 @@
 [ext_resource path="res://assets/audio/ost-test.mp3" type="AudioStream" id=28]
 [ext_resource path="res://assets/audio/effects/short-circuit.mp3" type="AudioStream" id=29]
 [ext_resource path="res://assets/capsule.png" type="Texture" id=30]
+[ext_resource path="res://assets/door_left.png" type="Texture" id=31]
+[ext_resource path="res://assets/door_right.png" type="Texture" id=32]
 
 [sub_resource type="Animation" id=20]
 length = 0.001
@@ -124,6 +126,108 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1.375, 2.125 ), Vector2( 1e-05, 2.125 ) ]
+}
+
+[sub_resource type="Animation" id=42]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("doorleft:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.603655, 1.6717 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("doorleft:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -11.0977, 5.67209 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("doorright:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.684727, 1.69036 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("doorright:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 16.3942, 5.67194 ) ]
+}
+
+[sub_resource type="Animation" id=43]
+resource_name = "opendoors"
+tracks/0/type = "value"
+tracks/0/path = NodePath("doorleft:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.603655, 1.6717 ), Vector2( 0.0980753, 1.6717 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("doorleft:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -11.0977, 5.67209 ), Vector2( -25.2539, 5.67209 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("doorright:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.684727, 1.69036 ), Vector2( 0.0427242, 1.69036 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("doorright:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 16.3942, 5.67194 ), Vector2( 24.9328, 5.67194 ) ]
 }
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -923,6 +1027,22 @@ emitting = false
 [node name="Timer" type="Timer" parent="map/navigation/door3"]
 wait_time = 3.0
 
+[node name="doors" type="Node2D" parent="map/navigation/door3"]
+
+[node name="doorleft" type="Sprite" parent="map/navigation/door3/doors"]
+position = Vector2( -11.0977, 5.67209 )
+scale = Vector2( 0.603655, 1.6717 )
+texture = ExtResource( 31 )
+
+[node name="doorright" type="Sprite" parent="map/navigation/door3/doors"]
+position = Vector2( 16.3942, 5.67194 )
+scale = Vector2( 0.684727, 1.69036 )
+texture = ExtResource( 32 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="map/navigation/door3/doors"]
+anims/RESET = SubResource( 42 )
+anims/opendoors = SubResource( 43 )
+
 [node name="door4" parent="map/navigation" instance=ExtResource( 2 )]
 position = Vector2( 2035.52, 751.066 )
 scale = Vector2( 3.634, 1.539 )
@@ -1536,6 +1656,7 @@ mix_target = 1
 
 [connection signal="animation_finished" from="map/firtsDoor/AnimationPlayer" to="map/firtsDoor" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="map/navigation/door3/Timer" to="map/navigation/door3" method="_on_Timer_timeout"]
+[connection signal="animation_finished" from="map/navigation/door3/doors/AnimationPlayer" to="map/navigation/door3" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="input_event" from="map/interaction/interactive" to="map/interaction/interactive" method="_on_interactive_input_event"]
 [connection signal="timeout" from="map/interaction/ComputerTwo/Computer/RichTextLabel2/Timer" to="map/interaction/ComputerTwo" method="_on_Timer_timeout"]
 [connection signal="animation_finished" from="map/interaction/ComputerTwo/Computer/load/ColorRect/AnimationPlayer" to="map/interaction/ComputerTwo" method="_on_AnimationPlayer_animation_finished"]

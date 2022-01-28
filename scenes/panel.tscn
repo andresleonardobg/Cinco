@@ -25,7 +25,7 @@ margin_left = 128.0
 margin_top = 152.0
 margin_right = 192.0
 margin_bottom = 208.0
-text = "1"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -35,7 +35,7 @@ margin_left = 240.0
 margin_top = 152.0
 margin_right = 304.0
 margin_bottom = 208.0
-text = "2"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -45,7 +45,7 @@ margin_left = 336.0
 margin_top = 152.0
 margin_right = 400.0
 margin_bottom = 208.0
-text = "3"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -55,7 +55,7 @@ margin_left = 128.0
 margin_top = 216.0
 margin_right = 192.0
 margin_bottom = 272.0
-text = "4"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -65,7 +65,7 @@ margin_left = 240.0
 margin_top = 216.0
 margin_right = 304.0
 margin_bottom = 272.0
-text = "5"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -75,7 +75,7 @@ margin_left = 336.0
 margin_top = 216.0
 margin_right = 400.0
 margin_bottom = 272.0
-text = "6"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -85,7 +85,7 @@ margin_left = 128.0
 margin_top = 280.0
 margin_right = 192.0
 margin_bottom = 336.0
-text = "7"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -95,7 +95,7 @@ margin_left = 240.0
 margin_top = 280.0
 margin_right = 304.0
 margin_bottom = 336.0
-text = "8"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -105,7 +105,7 @@ margin_left = 336.0
 margin_top = 280.0
 margin_right = 400.0
 margin_bottom = 336.0
-text = "9"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -115,7 +115,7 @@ margin_left = 232.0
 margin_top = 368.0
 margin_right = 296.0
 margin_bottom = 424.0
-text = "0"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -125,7 +125,7 @@ margin_left = 128.0
 margin_top = 368.0
 margin_right = 192.0
 margin_bottom = 424.0
-text = "x"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -136,7 +136,7 @@ margin_top = 368.0
 margin_right = 400.0
 margin_bottom = 424.0
 rect_pivot_offset = Vector2( 16, 16 )
-text = "v"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
