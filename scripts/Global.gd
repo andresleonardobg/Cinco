@@ -1,14 +1,16 @@
 extends Node
 
+var lenguage
+
 var softwareLoad = false
 var capsule = false
 var map
 var cabina
 var lights_state = true
 
-onready var nav = get_tree().get_nodes_in_group('navigation')
-onready var lights = get_tree().get_nodes_in_group('lights')
-onready var nav_cam = get_tree().get_nodes_in_group('nav_cam')
+var nav #= get_tree().get_nodes_in_group('navigation')
+var lights #= get_tree().get_nodes_in_group('lights')
+var nav_cam #= get_tree().get_nodes_in_group('nav_cam')
 
 #dialogos
 var inRoom = true
