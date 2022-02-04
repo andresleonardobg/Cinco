@@ -46,7 +46,7 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 
 
 func _on_ButtonPassword_pressed() -> void:
-	if $block/LineEdit.text == '3101':
+	if $block/LineEdit.text == '4212':
 		$block.queue_free()
 		$desktop.visible = true
 	else:

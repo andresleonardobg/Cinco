@@ -48,6 +48,7 @@ func _process(_delta):
 
 
 func _on_object_area_entered(area):
+	
 	for p in positions:
 		if area.name == p.name:
 			inInvent = true

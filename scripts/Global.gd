@@ -1,6 +1,6 @@
 extends Node
 
-var lenguage
+var lenguage = 0
 
 var softwareLoad = false
 var capsule = false
