@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=74 format=2]
 
 [ext_resource path="res://scenes/map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/navigation.tscn" type="PackedScene" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://assets/door_left.png" type="Texture" id=31]
 [ext_resource path="res://assets/door_right.png" type="Texture" id=32]
 [ext_resource path="res://scenes/mouse.tscn" type="PackedScene" id=33]
+[ext_resource path="res://resources/theme_cinco.tres" type="Theme" id=34]
 
 [sub_resource type="Animation" id=20]
 length = 0.001
@@ -233,21 +234,6 @@ tracks/3/keys = {
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32, 24 )
-
-[sub_resource type="DynamicFontData" id=3]
-font_path = "res://assets/font/Inconsolata-VariableFont_wdth,wght.ttf"
-
-[sub_resource type="DynamicFont" id=4]
-size = 50
-font_data = SubResource( 3 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 50
-font_data = SubResource( 3 )
-
-[sub_resource type="DynamicFont" id=6]
-size = 50
-font_data = SubResource( 3 )
 
 [sub_resource type="Animation" id=7]
 resource_name = "load"
@@ -1271,16 +1257,17 @@ texture = ExtResource( 12 )
 script = ExtResource( 13 )
 
 [node name="Computer" type="Control" parent="map/interaction/ComputerTwo"]
+theme = ExtResource( 34 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="map/interaction/ComputerTwo/Computer"]
-margin_left = -167.0
-margin_top = -97.0
-margin_right = 155.0
-margin_bottom = 83.0
-custom_fonts/normal_font = SubResource( 4 )
+margin_left = -130.613
+margin_top = -20.0
+margin_right = 111.387
+margin_bottom = 15.0
+rect_scale = Vector2( 1, 2 )
 text = "Inserte chips  de carga"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1288,11 +1275,11 @@ __meta__ = {
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="map/interaction/ComputerTwo/Computer"]
 visible = false
-margin_left = -167.0
-margin_top = -20.0
-margin_right = 172.0
-margin_bottom = 57.0
-custom_fonts/normal_font = SubResource( 5 )
+margin_left = -49.1447
+margin_top = -19.0371
+margin_right = 83.8553
+margin_bottom = 20.9629
+rect_scale = Vector2( 1, 2 )
 text = "Cargando. . ."
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1305,13 +1292,14 @@ one_shot = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
+theme = ExtResource( 34 )
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="map/interaction/ComputerTwo/Computer/load"]
-margin_left = -118.78
-margin_top = -173.63
-margin_right = 139.22
-margin_bottom = -45.6299
-custom_fonts/normal_font = SubResource( 6 )
+margin_left = -88.1206
+margin_top = -125.551
+margin_right = 107.879
+margin_bottom = -85.5508
+rect_scale = Vector2( 1, 2 )
 text = "Instalando software"
 __meta__ = {
 "_edit_use_anchors_": false

@@ -8,14 +8,6 @@ func _ready():
 	global_position = pos
 
 func _input(_event):
-#	if $block:
-#		if Input.is_action_just_pressed("ui_accept"):
-#			if $block/LineEdit.text == '3101':
-#				$block.queue_free()
-#				$desktop.visible = true
-#			else:
-#				$block/LineEdit.text = ''
-#				#put song
 	pass
 
 func _on_Button_pressed():

@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=12 format=2]
 
-[ext_resource path="res://assets/font/AHundredMiles.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/font/consola.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/bottom.png" type="Texture" id=2]
 [ext_resource path="res://assets/windows.png" type="Texture" id=3]
 
@@ -74,7 +74,7 @@ LineEdit/styles/read_only = null
 RichTextLabel/colors/default_color = Color( 1, 1, 1, 1 )
 RichTextLabel/colors/font_color_selected = Color( 1, 1, 1, 1 )
 RichTextLabel/colors/font_color_shadow = Color( 1, 1, 1, 1 )
-RichTextLabel/colors/selection_color = Color( 0, 0, 0, 1 )
+RichTextLabel/colors/selection_color = Color( 1, 1, 1, 1 )
 RichTextLabel/constants/line_separation = 0
 RichTextLabel/constants/shadow_as_outline = 0
 RichTextLabel/constants/shadow_offset_x = 0
