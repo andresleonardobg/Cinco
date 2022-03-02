@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/spray.mp3-34eef8540637b06126d32b531fe8c277.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/effects/spray.mp3"
+dest_files=[ "res://.import/spray.mp3-34eef8540637b06126d32b531fe8c277.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

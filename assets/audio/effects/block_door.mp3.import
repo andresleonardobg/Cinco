@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/block_door.mp3-ef7db6c252cad721330f24b264558ef9.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/effects/block_door.mp3"
+dest_files=[ "res://.import/block_door.mp3-ef7db6c252cad721330f24b264558ef9.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

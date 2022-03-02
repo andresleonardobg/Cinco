@@ -31,11 +31,11 @@ func show_dialog(t, node):
 func _ready() -> void:
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#dialogos
 	if get_tree().get_current_scene().get_name() == "level":
 		if map:
-			node_level = get_node("/root/level")
+			node_level = get_node("/root/level/CanvasLayer")
 			taller = get_node("/root/level/map/navigation/door7")
 		#cuando se encuentra por primera vez al viejo
 			if map.y == -4000 and map.x == 0 and firts_dialog:
@@ -52,10 +52,10 @@ func _process(delta: float) -> void:
 			var node_cabina = get_node("/root/level/map/navigation/door26")
 			node_cabina.block = false	
 	#nav visible
-		if vis:
-			print('nav')
-		else:
-			print('no nav')
+#		if vis:
+#			print('nav')
+#		else:
+#			print('no nav')
 	
 		for d in nav:
 			d.visible = vis

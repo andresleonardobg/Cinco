@@ -15,9 +15,9 @@ onready var panel = get_node("/root/level/map/interaction/panel/Sprite")
 
 var vis
 
-func _ready():
-	print(nodeMap)
-	pass
+
+#lab door state
+var firts_time = true
 
 #warning signal on node-----------------------------------------------------
 func _get_configuration_warning():
@@ -52,8 +52,14 @@ func _process(_delta):
 
 
 func _on_navigation_input_event(_viewport, _event, _shape_idx):
+
 	if self.visible:
 		if Input.is_action_just_pressed("leftMouse"):
+			#foot steps sound
+			if block:
+				$AudioStreamPlayer2.play()
+			else:
+				$AudioStreamPlayer.play()
 			
 			#navigation cam---------------------------------------------------------
 			if self.name == 'navigationCam' or self.name == 'navigationCam2':
@@ -66,41 +72,39 @@ func _on_navigation_input_event(_viewport, _event, _shape_idx):
 			#-----------------------------------------------------------------------
 
 			#Particles gas---------------------------------------------------------
-			elif self.name == 'door3' and block == false:
-				if len(get_children()) > 1:
-					for n in get_children():
-						if n.name == 'Particles2D':
-							n.emitting = true
-						
-						if n.name == 'Timer':
-							n.start()
-						
-						if get_node("../door3/doors/AnimationPlayer"):
-							get_node("../door3/doors/AnimationPlayer").play("opendoors")
-				else:
-					map.global_position = posMap
+			elif self.name == 'door3' and block == false and firts_time:
+				firts_time = false
+				Global.vis = false
+				lab_door()
 			#-----------------------------------------------------------------------
 
 			else:
 				if !block:
 					map.global_position = posMap
-				else:
-					#put song here
-					print('block')
+
+
+#animation lab door
+func lab_door() -> void:
+	var particles = get_node("../../door_animation/Particles2D")
+	var spray = get_node("../../door_animation/spray")
+	var opendoor_animate = get_node("../../door_animation/doors/AnimationPlayer")
+	var timer = get_node("../../door_animation/Timer")
+	
+	particles.emitting = true
+	spray.play()
+	timer.start()
+	opendoor_animate.play("opendoors")
 
 #Delete particles---------------------------------------------------------------
 func _on_Timer_timeout():
+	Global.vis = true
 	map.global_position = posMap
-	get_children()[1].queue_free()
+	$AudioStreamPlayer.play()
 	
-	for n in get_children():
-		if n.name == 'Particles2D':
-			n.queue_free()
-		
-		if n.name == 'Timer':
-			n.queue_free()
+	get_node("../../door_animation/Particles2D").queue_free()
+	get_node("../../door_animation/Timer").queue_free()
 #--------------------------------------------------------------------------------
 
 #delete doors door3 node
-func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
-	get_node("../door3/doors").queue_free()
+func _on_AnimationPlayer_animation_finished(_anim_name: String) -> void:
+	get_node("../../door_animation/doors/AnimationPlayer").queue_free()

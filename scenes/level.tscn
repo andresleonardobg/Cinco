@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=2]
+[gd_scene load_steps=86 format=2]
 
 [ext_resource path="res://scenes/map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/navigation.tscn" type="PackedScene" id=2]
@@ -34,6 +34,14 @@
 [ext_resource path="res://assets/door_right.png" type="Texture" id=32]
 [ext_resource path="res://scenes/mouse.tscn" type="PackedScene" id=33]
 [ext_resource path="res://resources/theme_cinco.tres" type="Theme" id=34]
+[ext_resource path="res://scripts/singboard.gd" type="Script" id=35]
+[ext_resource path="res://assets/singboard.png" type="Texture" id=36]
+[ext_resource path="res://assets/font/consola.ttf" type="DynamicFontData" id=37]
+[ext_resource path="res://resources/shader.tres" type="Material" id=38]
+[ext_resource path="res://assets/audio/effects/ambient.mp3" type="AudioStream" id=39]
+[ext_resource path="res://assets/audio/effects/insert_chip.mp3" type="AudioStream" id=40]
+[ext_resource path="res://assets/audio/effects/turnOn_tv.mp3" type="AudioStream" id=41]
+[ext_resource path="res://assets/audio/effects/spray.mp3" type="AudioStream" id=42]
 
 [sub_resource type="Animation" id=20]
 length = 0.001
@@ -128,108 +136,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1.375, 2.125 ), Vector2( 1e-05, 2.125 ) ]
-}
-
-[sub_resource type="Animation" id=42]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("doorleft:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0.603655, 1.6717 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("doorleft:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -11.0977, 5.67209 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("doorright:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0.684727, 1.69036 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("doorright:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 16.3942, 5.67194 ) ]
-}
-
-[sub_resource type="Animation" id=43]
-resource_name = "opendoors"
-tracks/0/type = "value"
-tracks/0/path = NodePath("doorleft:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0.603655, 1.6717 ), Vector2( 0.0980753, 1.6717 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("doorleft:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -11.0977, 5.67209 ), Vector2( -25.2539, 5.67209 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("doorright:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0.684727, 1.69036 ), Vector2( 0.0427242, 1.69036 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("doorright:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 16.3942, 5.67194 ), Vector2( 24.9328, 5.67194 ) ]
 }
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -745,6 +651,124 @@ tracks/0/keys = {
 "values": [ 0.0, 0.8, 0.0, 0.8 ]
 }
 
+[sub_resource type="DynamicFont" id=44]
+size = 20
+font_data = ExtResource( 37 )
+
+[sub_resource type="DynamicFont" id=45]
+size = 20
+font_data = ExtResource( 37 )
+
+[sub_resource type="DynamicFont" id=46]
+size = 20
+font_data = ExtResource( 37 )
+
+[sub_resource type="DynamicFont" id=47]
+size = 20
+font_data = ExtResource( 37 )
+
+[sub_resource type="Animation" id=48]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("doorleft:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.603655, 1.6717 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("doorleft:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -11.0977, 5.67209 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("doorright:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.684727, 1.69036 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("doorright:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 16.3942, 5.67194 ) ]
+}
+
+[sub_resource type="Animation" id=49]
+resource_name = "opendoors"
+tracks/0/type = "value"
+tracks/0/path = NodePath("doorleft:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.603655, 1.6717 ), Vector2( 0.0980753, 1.6717 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("doorleft:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -11.0977, 5.67209 ), Vector2( -25.2539, 5.67209 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("doorright:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.684727, 1.69036 ), Vector2( 0.0427242, 1.69036 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("doorright:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 16.3942, 5.67194 ), Vector2( 24.9328, 5.67194 ) ]
+}
+
 [sub_resource type="Animation" id=19]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -772,7 +796,7 @@ script = ExtResource( 8 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="map"]
 position = Vector2( 0, 500 )
-color = Color( 0.0235294, 0.235294, 0.286275, 1 )
+color = Color( 0.0862745, 0.172549, 0.188235, 1 )
 
 [node name="lights" type="Node2D" parent="map" groups=["lights"]]
 
@@ -1006,30 +1030,6 @@ block = true
 posMap = Vector2( 0, -2000 )
 nodeMap = NodePath("../..")
 
-[node name="Particles2D" parent="map/navigation/door3" instance=ExtResource( 11 )]
-position = Vector2( -2.9093, -257.216 )
-scale = Vector2( 0.5, 3 )
-emitting = false
-
-[node name="Timer" type="Timer" parent="map/navigation/door3"]
-wait_time = 3.0
-
-[node name="doors" type="Node2D" parent="map/navigation/door3"]
-
-[node name="doorleft" type="Sprite" parent="map/navigation/door3/doors"]
-position = Vector2( -11.0977, 5.67209 )
-scale = Vector2( 0.603655, 1.6717 )
-texture = ExtResource( 31 )
-
-[node name="doorright" type="Sprite" parent="map/navigation/door3/doors"]
-position = Vector2( 16.3942, 5.67194 )
-scale = Vector2( 0.684727, 1.69036 )
-texture = ExtResource( 32 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="map/navigation/door3/doors"]
-anims/RESET = SubResource( 42 )
-anims/opendoors = SubResource( 43 )
-
 [node name="door4" parent="map/navigation" instance=ExtResource( 2 )]
 position = Vector2( 2035.52, 751.066 )
 scale = Vector2( 3.634, 1.539 )
@@ -1241,7 +1241,7 @@ __meta__ = {
 "_edit_group_": true
 }
 name_node = "ComputerLab"
-nodeNav = NodePath("../../../navigationCam")
+nodeNav = NodePath("../../../CanvasLayer/navigationCam")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/interaction/interactive"]
 shape = SubResource( 2 )
@@ -1262,28 +1262,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="map/interaction/ComputerTwo/Computer"]
-margin_left = -130.613
-margin_top = -20.0
-margin_right = 111.387
-margin_bottom = 15.0
+[node name="RichTextLabel" type="Label" parent="map/interaction/ComputerTwo/Computer"]
+margin_left = -245.0
+margin_top = -239.0
+margin_right = 246.0
+margin_bottom = 3.0
 rect_scale = Vector2( 1, 2 )
 text = "Inserte chips  de carga"
+align = 1
+valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="map/interaction/ComputerTwo/Computer"]
+[node name="RichTextLabel2" type="Label" parent="map/interaction/ComputerTwo/Computer"]
 visible = false
-margin_left = -49.1447
-margin_top = -19.0371
-margin_right = 83.8553
-margin_bottom = 20.9629
+margin_left = -250.0
+margin_top = -254.0
+margin_right = 244.0
+margin_bottom = -6.0
 rect_scale = Vector2( 1, 2 )
 text = "Cargando. . ."
-__meta__ = {
-"_edit_use_anchors_": false
-}
+align = 1
+valign = 1
 
 [node name="Timer" type="Timer" parent="map/interaction/ComputerTwo/Computer/RichTextLabel2"]
 one_shot = true
@@ -1294,16 +1296,15 @@ margin_right = 40.0
 margin_bottom = 40.0
 theme = ExtResource( 34 )
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="map/interaction/ComputerTwo/Computer/load"]
-margin_left = -88.1206
-margin_top = -125.551
-margin_right = 107.879
-margin_bottom = -85.5508
+[node name="RichTextLabel3" type="Label" parent="map/interaction/ComputerTwo/Computer/load"]
+margin_left = -252.0
+margin_top = -252.0
+margin_right = 249.0
+margin_bottom = -149.0
 rect_scale = Vector2( 1, 2 )
 text = "Instalando software"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+align = 1
+valign = 1
 
 [node name="ColorRect" type="ColorRect" parent="map/interaction/ComputerTwo/Computer/load"]
 margin_left = -199.442
@@ -1353,6 +1354,14 @@ __meta__ = {
 [node name="AnimationPlayer4" type="AnimationPlayer" parent="map/interaction/ComputerTwo/Computer/load/ColorRect4"]
 anims/load = SubResource( 10 )
 
+[node name="shader" type="Sprite" parent="map/interaction/ComputerTwo/Computer"]
+material = ExtResource( 38 )
+position = Vector2( 256, 246.143 )
+scale = Vector2( 7.95717, 7.80638 )
+z_index = 1
+texture = ExtResource( 7 )
+offset = Vector2( -32, -32 )
+
 [node name="slots" type="Node2D" parent="map/interaction/ComputerTwo"]
 
 [node name="slot" type="Area2D" parent="map/interaction/ComputerTwo/slots" groups=["slots"]]
@@ -1366,7 +1375,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/interaction/ComputerTwo/slots/slot"]
 shape = SubResource( 11 )
 
-[node name="move" type="AnimationPlayer" parent="map/interaction/ComputerTwo/slots/slot"]
+[node name="move" type="AnimationPlayer" parent="map/interaction/ComputerTwo/slots/slot" groups=["insert_chip"]]
 anims/RESET = SubResource( 24 )
 anims/embedded = SubResource( 25 )
 
@@ -1381,7 +1390,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/interaction/ComputerTwo/slots/slot2"]
 shape = SubResource( 11 )
 
-[node name="move" type="AnimationPlayer" parent="map/interaction/ComputerTwo/slots/slot2"]
+[node name="move" type="AnimationPlayer" parent="map/interaction/ComputerTwo/slots/slot2" groups=["insert_chip"]]
 anims/RESET = SubResource( 26 )
 anims/embedded = SubResource( 27 )
 
@@ -1396,7 +1405,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/interaction/ComputerTwo/slots/slot3"]
 shape = SubResource( 11 )
 
-[node name="move" type="AnimationPlayer" parent="map/interaction/ComputerTwo/slots/slot3"]
+[node name="move" type="AnimationPlayer" parent="map/interaction/ComputerTwo/slots/slot3" groups=["insert_chip"]]
 anims/RESET = SubResource( 28 )
 anims/embedded = SubResource( 29 )
 
@@ -1411,9 +1420,12 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/interaction/ComputerTwo/slots/slot4"]
 shape = SubResource( 11 )
 
-[node name="move" type="AnimationPlayer" parent="map/interaction/ComputerTwo/slots/slot4"]
+[node name="move" type="AnimationPlayer" parent="map/interaction/ComputerTwo/slots/slot4" groups=["insert_chip"]]
 anims/RESET = SubResource( 30 )
 anims/embedded = SubResource( 31 )
+
+[node name="slots" type="AudioStreamPlayer" parent="map/interaction/ComputerTwo/slots"]
+stream = ExtResource( 40 )
 
 [node name="Capsule" type="Node2D" parent="map/interaction"]
 position = Vector2( 500, 3000 )
@@ -1509,6 +1521,9 @@ rotation = 0.190241
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 30 )
 
+[node name="fit" type="AudioStreamPlayer" parent="map/interaction/Capsule"]
+stream = ExtResource( 40 )
+
 [node name="panel" type="Area2D" parent="map/interaction"]
 position = Vector2( 304, 1760 )
 script = ExtResource( 15 )
@@ -1598,6 +1613,12 @@ energy = 0.0
 anims/RESET = SubResource( 22 )
 anims/on = SubResource( 23 )
 
+[node name="fit" type="AudioStreamPlayer" parent="map/interaction/cabina"]
+stream = ExtResource( 40 )
+
+[node name="on_monitor" type="AudioStreamPlayer" parent="map/interaction/cabina"]
+stream = ExtResource( 41 )
+
 [node name="note" parent="map/interaction" instance=ExtResource( 22 )]
 position = Vector2( 1200, 1000 )
 node = NodePath("../interactive")
@@ -1605,27 +1626,137 @@ node = NodePath("../interactive")
 [node name="reflection" parent="map" instance=ExtResource( 23 )]
 position = Vector2( 600, 4000 )
 
-[node name="navigationCam" type="Node2D" parent="."]
+[node name="singboard" type="Control" parent="map"]
+margin_top = 1500.0
+margin_bottom = 1500.0
+script = ExtResource( 35 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="map/singboard"]
+position = Vector2( 778.671, 128.163 )
+scale = Vector2( 0.4, 0.1 )
+texture = ExtResource( 36 )
+
+[node name="Sprite2" type="Sprite" parent="map/singboard"]
+position = Vector2( 927.003, 126.665 )
+scale = Vector2( 0.4, 0.1 )
+texture = ExtResource( 36 )
+
+[node name="Sprite3" type="Sprite" parent="map/singboard"]
+position = Vector2( 1978.81, 126.665 )
+scale = Vector2( 0.4, 0.1 )
+texture = ExtResource( 36 )
+
+[node name="Sprite4" type="Sprite" parent="map/singboard"]
+position = Vector2( 2125.07, 129.646 )
+scale = Vector2( 0.4, 0.1 )
+texture = ExtResource( 36 )
+
+[node name="Systems" type="Label" parent="map/singboard"]
+margin_left = 725.0
+margin_top = 116.0
+margin_right = 831.0
+margin_bottom = 141.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 44 )
+text = "Sistemas"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bedroom" type="Label" parent="map/singboard"]
+margin_left = 874.502
+margin_top = 113.998
+margin_right = 980.502
+margin_bottom = 138.998
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 45 )
+align = 1
+valign = 1
+
+[node name="Kitchen" type="Label" parent="map/singboard"]
+margin_left = 1926.34
+margin_top = 113.773
+margin_right = 2032.34
+margin_bottom = 138.773
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 46 )
+align = 1
+valign = 1
+
+[node name="Workshop" type="Label" parent="map/singboard"]
+margin_left = 2071.83
+margin_top = 116.844
+margin_right = 2177.83
+margin_bottom = 141.844
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 47 )
+align = 1
+valign = 1
+
+[node name="door_animation" type="Node2D" parent="map"]
+position = Vector2( 1452.26, 786.596 )
+scale = Vector2( 1.5, 0.6 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="nav_cam" type="Node2D" parent="navigationCam" groups=["nav_cam"]]
+[node name="Particles2D" parent="map/door_animation" instance=ExtResource( 11 )]
+position = Vector2( -2.9093, -257.216 )
+scale = Vector2( 0.5, 3 )
+emitting = false
 
-[node name="navigationCam" parent="navigationCam/nav_cam" instance=ExtResource( 2 )]
+[node name="Timer" type="Timer" parent="map/door_animation"]
+wait_time = 3.0
+one_shot = true
+
+[node name="doors" type="Node2D" parent="map/door_animation"]
+
+[node name="doorleft" type="Sprite" parent="map/door_animation/doors"]
+position = Vector2( -11.0977, 5.67209 )
+scale = Vector2( 0.603655, 1.6717 )
+texture = ExtResource( 31 )
+
+[node name="doorright" type="Sprite" parent="map/door_animation/doors"]
+position = Vector2( 16.3942, 5.67194 )
+scale = Vector2( 0.684727, 1.69036 )
+texture = ExtResource( 32 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="map/door_animation/doors"]
+anims/RESET = SubResource( 48 )
+anims/opendoors = SubResource( 49 )
+
+[node name="spray" type="AudioStreamPlayer" parent="map/door_animation"]
+stream = ExtResource( 42 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="navigationCam" type="Node2D" parent="CanvasLayer"]
+light_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="nav_cam" type="Node2D" parent="CanvasLayer/navigationCam" groups=["nav_cam"]]
+
+[node name="navigationCam" parent="CanvasLayer/navigationCam/nav_cam" instance=ExtResource( 2 )]
 position = Vector2( 20, 250 )
 posMap = Vector2( 600, 0 )
-nodeMap = NodePath("../../../map")
+nodeMap = NodePath("../../../../map")
 
-[node name="navigationCam2" parent="navigationCam/nav_cam" instance=ExtResource( 2 )]
+[node name="navigationCam2" parent="CanvasLayer/navigationCam/nav_cam" instance=ExtResource( 2 )]
 position = Vector2( 480, 250 )
 posMap = Vector2( -600, 0 )
-nodeMap = NodePath("../../../map")
+nodeMap = NodePath("../../../../map")
 
-[node name="Inventory" parent="navigationCam" instance=ExtResource( 5 )]
+[node name="Inventory" parent="CanvasLayer/navigationCam" instance=ExtResource( 5 )]
 light_mask = 4
 
-[node name="fadeIn" type="ColorRect" parent="navigationCam"]
+[node name="fadeIn" type="ColorRect" parent="CanvasLayer/navigationCam"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 500.0
@@ -1636,19 +1767,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="navigationCam/fadeIn"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/navigationCam/fadeIn"]
 anims/fadeIn = SubResource( 19 )
+
+[node name="mouse" parent="CanvasLayer" instance=ExtResource( 33 )]
+z_index = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 28 )
+volume_db = -31.268
 mix_target = 1
 
-[node name="mouse" parent="." instance=ExtResource( 33 )]
-z_index = 1
+[node name="ambient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 39 )
+volume_db = -33.307
+autoplay = true
+mix_target = 1
 
 [connection signal="animation_finished" from="map/firtsDoor/AnimationPlayer" to="map/firtsDoor" method="_on_AnimationPlayer_animation_finished"]
-[connection signal="timeout" from="map/navigation/door3/Timer" to="map/navigation/door3" method="_on_Timer_timeout"]
-[connection signal="animation_finished" from="map/navigation/door3/doors/AnimationPlayer" to="map/navigation/door3" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="input_event" from="map/interaction/interactive" to="map/interaction/interactive" method="_on_interactive_input_event"]
 [connection signal="timeout" from="map/interaction/ComputerTwo/Computer/RichTextLabel2/Timer" to="map/interaction/ComputerTwo" method="_on_Timer_timeout"]
 [connection signal="animation_finished" from="map/interaction/ComputerTwo/Computer/load/ColorRect/AnimationPlayer" to="map/interaction/ComputerTwo" method="_on_AnimationPlayer_animation_finished"]
@@ -1656,13 +1792,21 @@ z_index = 1
 [connection signal="animation_finished" from="map/interaction/ComputerTwo/Computer/load/ColorRect3/AnimationPlayer3" to="map/interaction/ComputerTwo" method="_on_AnimationPlayer3_animation_finished"]
 [connection signal="animation_finished" from="map/interaction/ComputerTwo/Computer/load/ColorRect4/AnimationPlayer4" to="map/interaction/ComputerTwo" method="_on_AnimationPlayer4_animation_finished"]
 [connection signal="area_entered" from="map/interaction/ComputerTwo/slots/slot" to="map/interaction/ComputerTwo" method="_on_slot_area_entered"]
+[connection signal="animation_finished" from="map/interaction/ComputerTwo/slots/slot/move" to="map/interaction/ComputerTwo" method="_on_move_animation_finished"]
 [connection signal="area_entered" from="map/interaction/ComputerTwo/slots/slot2" to="map/interaction/ComputerTwo" method="_on_slot2_area_entered"]
+[connection signal="animation_finished" from="map/interaction/ComputerTwo/slots/slot2/move" to="map/interaction/ComputerTwo" method="_on_move_animation_finished"]
 [connection signal="area_entered" from="map/interaction/ComputerTwo/slots/slot3" to="map/interaction/ComputerTwo" method="_on_slot3_area_entered"]
+[connection signal="animation_finished" from="map/interaction/ComputerTwo/slots/slot3/move" to="map/interaction/ComputerTwo" method="_on_move_animation_finished"]
 [connection signal="area_entered" from="map/interaction/ComputerTwo/slots/slot4" to="map/interaction/ComputerTwo" method="_on_slot4_area_entered"]
+[connection signal="animation_finished" from="map/interaction/ComputerTwo/slots/slot4/move" to="map/interaction/ComputerTwo" method="_on_move_animation_finished"]
 [connection signal="area_entered" from="map/interaction/Capsule/Area2D" to="map/interaction/Capsule" method="_on_Area2D_area_entered"]
+[connection signal="animation_finished" from="map/interaction/Capsule/Area2D/move" to="map/interaction/Capsule" method="_on_move_animation_finished"]
 [connection signal="area_entered" from="map/interaction/Capsule/Area2D2" to="map/interaction/Capsule" method="_on_Area2D2_area_entered"]
+[connection signal="animation_finished" from="map/interaction/Capsule/Area2D2/move" to="map/interaction/Capsule" method="_on_move_animation_finished"]
 [connection signal="area_exited" from="map/interaction/Capsule/Area2D3" to="map/interaction/Capsule" method="_on_Area2D3_area_exited"]
+[connection signal="animation_finished" from="map/interaction/Capsule/Area2D3/move" to="map/interaction/Capsule" method="_on_move_animation_finished"]
 [connection signal="area_entered" from="map/interaction/Capsule/Area2D4" to="map/interaction/Capsule" method="_on_Area2D4_area_entered"]
+[connection signal="animation_finished" from="map/interaction/Capsule/Area2D4/move" to="map/interaction/Capsule" method="_on_move_animation_finished"]
 [connection signal="input_event" from="map/interaction/Capsule/Area2D5" to="map/interaction/Capsule" method="_on_Area2D5_input_event"]
 [connection signal="input_event" from="map/interaction/panel" to="map/interaction/panel" method="_on_panel_input_event"]
 [connection signal="input_event" from="map/interaction/tablet" to="map/interaction/tablet" method="_on_tablet_input_event"]
@@ -1670,4 +1814,6 @@ z_index = 1
 [connection signal="animation_finished" from="map/interaction/cabina/Area2D/Sprite/move" to="map/interaction/cabina" method="_on_move_animation_finished"]
 [connection signal="input_event" from="map/interaction/cabina/Area2D2" to="map/interaction/cabina" method="_on_Area2D2_input_event"]
 [connection signal="animation_finished" from="map/interaction/cabina/ColorRect/AnimationPlayer" to="map/interaction/cabina" method="_on_AnimationPlayer_animation_finished"]
-[connection signal="animation_finished" from="navigationCam/fadeIn/AnimationPlayer" to="navigationCam/fadeIn" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="map/door_animation/Timer" to="map/navigation/door3" method="_on_Timer_timeout"]
+[connection signal="animation_finished" from="map/door_animation/doors/AnimationPlayer" to="map/navigation/door3" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="CanvasLayer/navigationCam/fadeIn/AnimationPlayer" to="CanvasLayer/navigationCam/fadeIn" method="_on_AnimationPlayer_animation_finished"]

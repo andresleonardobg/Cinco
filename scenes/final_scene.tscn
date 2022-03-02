@@ -1,0 +1,184 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scripts/final_scene.gd" type="Script" id=1]
+[ext_resource path="res://assets/space.png" type="Texture" id=2]
+[ext_resource path="res://resources/theme_cinco.tres" type="Theme" id=3]
+[ext_resource path="res://scenes/planet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/planet_light.png" type="Texture" id=5]
+[ext_resource path="res://assets/starship-2.png" type="Texture" id=6]
+[ext_resource path="res://assets/particualas.png" type="Texture" id=7]
+
+[sub_resource type="ParticlesMaterial" id=7]
+emission_shape = 1
+emission_sphere_radius = 96.99
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.03
+scale_random = 0.03
+color = Color( 1, 1, 1, 0.517647 )
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 476.538, 332.375 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Particles2D:amount")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 8, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Particles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 776.538, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("../ColorRect:color:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "move"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 3, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 476.538, -0.7, 1.65494, 2, -64.9034, 776.538, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 4, 14.9 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("../ColorRect:color:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 11, 14.9 )
+}
+
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+
+void fragment(){
+	vec4 color = texture(SCREEN_TEXTURE,SCREEN_UV, 2.0);
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
+
+[node name="final_scene" type="Node2D"]
+script = ExtResource( 1 )
+scrolling_speed = 5.0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 600, 500 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 2 )
+offset = Vector2( 300, 250 )
+
+[node name="starshiptwo" type="Sprite" parent="."]
+position = Vector2( 776.538, 332.375 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 6 )
+
+[node name="Particles2D" type="Particles2D" parent="starshiptwo"]
+show_behind_parent = true
+position = Vector2( -57.5435, -22.8188 )
+scale = Vector2( 1, 1 )
+emitting = false
+local_coords = false
+process_material = SubResource( 7 )
+texture = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="starshiptwo"]
+anims/RESET = SubResource( 5 )
+anims/move = SubResource( 6 )
+
+[node name="planet" parent="." instance=ExtResource( 4 )]
+position = Vector2( -52.507, -133.71 )
+rotation = 0.253073
+
+[node name="blur" type="Sprite" parent="planet"]
+visible = false
+material = SubResource( 4 )
+position = Vector2( 314.904, 248.907 )
+texture = ExtResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 600.0
+margin_bottom = 500.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+text = "Hola Mundo"
+align = 1
+valign = 1
+
+[connection signal="animation_finished" from="starshiptwo/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

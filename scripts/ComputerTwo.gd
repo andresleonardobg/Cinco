@@ -4,8 +4,26 @@ var node = preload("res://scenes/object.tscn")
 onready var chips = get_tree().get_nodes_in_group('slots')
 var count = 0
 
+var lenguages = [
+	[
+		"Inserte los circuitos en las ranuras",
+		"Cargando. . .",
+		"Instalando software",
+		"Completado"
+	],
+	[
+		"Put the circuits in the slots",
+		"Loading. . .",
+		"Instaling software",
+		"Completed"
+	]
+]
+
 func _ready():
-	pass
+	#set text
+	$Computer/RichTextLabel.text = lenguages[Global.lenguage][0]
+	$Computer/RichTextLabel2.text = lenguages[Global.lenguage][1]
+	$Computer/load/RichTextLabel3.text = lenguages[Global.lenguage][2]
 
 func _process(_delta):
 	if count == 4:
@@ -24,12 +42,10 @@ func _on_slot2_area_entered(area):
 		insert_child(area, 'obj2', $slots/slot2)
 		$slots/slot2/move.play("embedded")
 
-
 func _on_slot3_area_entered(area):
 	if area.name == 'object3':
 		insert_child(area, 'obj3', $slots/slot3)
 		$slots/slot3/move.play("embedded")
-
 
 func _on_slot4_area_entered(area):
 	if area.name == 'object4':
@@ -44,32 +60,33 @@ func insert_child(area, nm, parent):
 	parent.call_deferred("add_child", n)
 	count += 1
 
-
 func _on_Timer_timeout():
 	$Computer/RichTextLabel2.visible = false
 	$Computer/load.visible = true
 	$Computer/load/ColorRect/AnimationPlayer.play("load")
-	
-
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
 	$Computer/load/ColorRect2/AnimationPlayer2.play("load")
 
-
 func _on_AnimationPlayer2_animation_finished(_anim_name):
 	$Computer/load/ColorRect3/AnimationPlayer3.play("load")
 
-
 func _on_AnimationPlayer3_animation_finished(_anim_name):
 	$Computer/load/ColorRect4/AnimationPlayer4.play("load")
-	
 
 func _on_AnimationPlayer4_animation_finished(_anim_name):
 	Global.capsule = true
-	$Computer/RichTextLabel2.text = 'carga completa'
+	$Computer/RichTextLabel2.text = lenguages[Global.lenguage][3]
 	$Computer/RichTextLabel2.visible = true
 	$Computer/load.visible = false
 	for n in chips:
 		var obj = n.get_children()
 		obj[2].block = false
 		Global.softwareLoad = true
+
+func play_move() -> void:
+	$slots/slots.play()
+
+
+func _on_move_animation_finished(_anim_name: String) -> void:
+	play_move()

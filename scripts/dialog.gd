@@ -33,9 +33,6 @@ func _ready():
 	$RichTextLabel.text = t[0]
 	$Timer.start()
 
-func _process(delta: float) -> void:
-	pass
-
 func _input(_event):
 	if self.visible:
 		

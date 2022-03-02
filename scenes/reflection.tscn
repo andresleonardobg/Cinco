@@ -77,6 +77,8 @@ shape = SubResource( 2 )
 position = Vector2( 208, 224 )
 shape = SubResource( 3 )
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
 [connection signal="animation_finished" from="principal/Sprite/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="input_event" from="principal/Area2D" to="." method="_on_Area2D_input_event"]
 [connection signal="input_event" from="Area2D2" to="." method="_on_Area2D2_input_event"]

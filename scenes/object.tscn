@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
+[ext_resource path="res://assets/audio/effects/take_chip.mp3" type="AudioStream" id=1]
 [ext_resource path="res://scripts/objects.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -27,6 +28,9 @@ scale = Vector2( 0.15, 0.15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 2 )
+
+[node name="take_it" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
 
 [connection signal="area_entered" from="." to="." method="_on_object_area_entered"]
 [connection signal="input_event" from="." to="." method="_on_object_input_event"]

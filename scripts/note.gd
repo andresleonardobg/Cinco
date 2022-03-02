@@ -6,8 +6,10 @@ onready var comp = get_node(node)
 
 
 
-func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_Area2D_input_event(_viewport: Node, _event: InputEvent, _shape_idx: int) -> void:
 	if Input.is_action_pressed("click"):
+		
+		$paper.play()
 		
 		Global.lights_state = false
 		Global.vis = false
@@ -17,8 +19,10 @@ func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int) -
 		comp.visible = false
 
 
-func _on_Area2D2_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_Area2D2_input_event(_viewport: Node, _event: InputEvent, _shape_idx: int) -> void:
 	if Input.is_action_pressed("click"):
+		
+		$paper.play()
 		
 		Global.lights_state = true
 		Global.vis = true

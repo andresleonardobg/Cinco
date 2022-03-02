@@ -11,6 +11,5 @@ func _ready():
 	Global.lights = get_tree().get_nodes_in_group('lights')
 	Global.nav_cam = get_tree().get_nodes_in_group('nav_cam')
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	Global.map = global_position
-

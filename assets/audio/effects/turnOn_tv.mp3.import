@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/turnOn_tv.mp3-e2ae4b08cdfa19122ea8718df52f647a.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/effects/turnOn_tv.mp3"
+dest_files=[ "res://.import/turnOn_tv.mp3-e2ae4b08cdfa19122ea8718df52f647a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

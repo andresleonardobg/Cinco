@@ -17,9 +17,12 @@ func _ready():
 	self.add_to_group('objects')
 
 func _on_object_input_event(_viewport, event, _shape_idx):
+	
 	if Global.obj == false:
 		if event is InputEventMouseButton:
+			
 			if event.pressed and event.button_index == BUTTON_LEFT and block == false:
+				$take_it.play()
 				take = true
 			elif !event.pressed and block == false:
 				take = false

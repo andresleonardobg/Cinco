@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/dialog.gd" type="Script" id=1]
+[ext_resource path="res://assets/font/consola.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 14
+font_data = ExtResource( 2 )
 
 [node name="Dialog" type="ColorRect"]
 margin_right = 500.0
-margin_bottom = 50.0
+margin_bottom = 80.0
 color = Color( 0, 0, 0, 1 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -12,10 +17,14 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 9.0
+margin_left = 8.0
 margin_top = 3.0
-margin_right = 489.0
-margin_bottom = 48.0
+margin_right = 496.0
+margin_bottom = 80.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = SubResource( 1 )
 text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took "
 __meta__ = {
 "_edit_use_anchors_": false

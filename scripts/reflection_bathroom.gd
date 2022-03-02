@@ -7,21 +7,21 @@ var play = true
 func _ready() -> void:
 	pass # Replace with function body.
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if play and $principal.visible:
 		$principal/Sprite/AnimationPlayer.play("fadeIn")
-		Global.show_dialog(4, self)
+		Global.show_dialog(4, $CanvasLayer)
 
 func _vis() -> void:
 	$principal/ColorRect.visible = false
 
-func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
+func _on_AnimationPlayer_animation_finished(_anim_name: String) -> void:
 	#$principal/ColorRect.visible = false
 	play = false
 	$principal/Sprite/AnimationPlayer.stop()
 	_vis()
 
-func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_Area2D_input_event(_viewport: Node, _event: InputEvent, _shape_idx: int) -> void:
 	if Input.is_action_just_pressed("click"):
 		Global.lights_state = true
 		$principal.visible = false
@@ -31,7 +31,7 @@ func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int) -
 		$principal/Sprite/AnimationPlayer.play_backwards("fadeIn")
 
 
-func _on_Area2D2_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_Area2D2_input_event(_viewport: Node, _event: InputEvent, _shape_idx: int) -> void:
 	if Input.is_action_just_pressed("click"):
 		Global.lights_state = false
 		$principal.visible = true

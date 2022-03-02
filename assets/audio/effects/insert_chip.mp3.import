@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/insert_chip.mp3-9737a86ab60bf1b49b739d90bbfc2088.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/effects/insert_chip.mp3"
+dest_files=[ "res://.import/insert_chip.mp3-9737a86ab60bf1b49b739d90bbfc2088.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

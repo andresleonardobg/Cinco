@@ -86,3 +86,7 @@ func _on_Area2D5_input_event(_viewport, event, _shape_idx):
 						break
 			
 
+
+
+func _on_move_animation_finished(_anim_name: String) -> void:
+	$fit.play()

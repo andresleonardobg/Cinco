@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/buzz_error.mp3-d7782f79a8ce1348bd1bcf9efda2c873.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/effects/buzz_error.mp3"
+dest_files=[ "res://.import/buzz_error.mp3-d7782f79a8ce1348bd1bcf9efda2c873.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/take_chip.mp3-f2fd2e9e0c6607c23b3ef93edbcb0ca2.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/effects/take_chip.mp3"
+dest_files=[ "res://.import/take_chip.mp3-f2fd2e9e0c6607c23b3ef93edbcb0ca2.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/confirm.mp3-cfe3e2426451b91428121055310f9ab0.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/effects/confirm.mp3"
+dest_files=[ "res://.import/confirm.mp3-cfe3e2426451b91428121055310f9ab0.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
