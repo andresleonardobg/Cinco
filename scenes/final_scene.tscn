@@ -144,7 +144,6 @@ texture = ExtResource( 6 )
 [node name="Particles2D" type="Particles2D" parent="starshiptwo"]
 show_behind_parent = true
 position = Vector2( -57.5435, -22.8188 )
-scale = Vector2( 1, 1 )
 emitting = false
 local_coords = false
 process_material = SubResource( 7 )

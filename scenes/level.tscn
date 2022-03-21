@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=2]
+[gd_scene load_steps=84 format=2]
 
 [ext_resource path="res://scenes/map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/navigation.tscn" type="PackedScene" id=2]
@@ -27,7 +27,6 @@
 [ext_resource path="res://assets/light-2.png" type="Texture" id=25]
 [ext_resource path="res://assets/light.png" type="Texture" id=26]
 [ext_resource path="res://assets/light-3.png" type="Texture" id=27]
-[ext_resource path="res://assets/audio/ost-test.mp3" type="AudioStream" id=28]
 [ext_resource path="res://assets/audio/effects/short-circuit.mp3" type="AudioStream" id=29]
 [ext_resource path="res://assets/capsule.png" type="Texture" id=30]
 [ext_resource path="res://assets/door_left.png" type="Texture" id=31]
@@ -38,7 +37,6 @@
 [ext_resource path="res://assets/singboard.png" type="Texture" id=36]
 [ext_resource path="res://assets/font/consola.ttf" type="DynamicFontData" id=37]
 [ext_resource path="res://resources/shader.tres" type="Material" id=38]
-[ext_resource path="res://assets/audio/effects/ambient.mp3" type="AudioStream" id=39]
 [ext_resource path="res://assets/audio/effects/insert_chip.mp3" type="AudioStream" id=40]
 [ext_resource path="res://assets/audio/effects/turnOn_tv.mp3" type="AudioStream" id=41]
 [ext_resource path="res://assets/audio/effects/spray.mp3" type="AudioStream" id=42]
@@ -1553,7 +1551,7 @@ shape = SubResource( 15 )
 
 [node name="Sprite2" parent="map/interaction/tablet" instance=ExtResource( 19 )]
 visible = false
-position = Vector2( -253.605, -409.962 )
+position = Vector2( -220, -409.962 )
 
 [node name="cabina" type="Node2D" parent="map/interaction"]
 position = Vector2( 1000, 4000 )
@@ -1772,17 +1770,6 @@ anims/fadeIn = SubResource( 19 )
 
 [node name="mouse" parent="CanvasLayer" instance=ExtResource( 33 )]
 z_index = 1
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 28 )
-volume_db = -31.268
-mix_target = 1
-
-[node name="ambient" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 39 )
-volume_db = -33.307
-autoplay = true
-mix_target = 1
 
 [connection signal="animation_finished" from="map/firtsDoor/AnimationPlayer" to="map/firtsDoor" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="input_event" from="map/interaction/interactive" to="map/interaction/interactive" method="_on_interactive_input_event"]

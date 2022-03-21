@@ -8,9 +8,14 @@
 extents = Vector2( 100, 10 )
 
 [node name="Sprite" type="Sprite"]
+position = Vector2( 125.716, 10.1022 )
+scale = Vector2( 0.865305, 0.854381 )
 texture = ExtResource( 1 )
 offset = Vector2( 250, 250 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
 margin_left = 98.0
